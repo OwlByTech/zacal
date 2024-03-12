@@ -14,7 +14,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      app:
+      zacal:
         ipv4_address: 10.8.0.2
 
   core:
@@ -30,7 +30,7 @@ services:
       - 7001:7001
       - 9000:9000
     networks:
-      app:
+      zacal:
         ipv4_address: 10.8.0.3
 
   web:
@@ -42,11 +42,11 @@ services:
     ports:
       - 8000:8000
     networks:
-      app:
+      zacal:
         ipv4_address: 10.8.0.4
 
 networks:
-  app:
+  zacal:
     driver: bridge
     ipam:
       config:
