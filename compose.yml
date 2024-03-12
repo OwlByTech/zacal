@@ -15,7 +15,7 @@ services:
       retries: 5
     networks:
       zacal:
-        ipv4_address: 10.8.0.2
+        ipv4_address: 10.9.0.2
 
   core:
     build: ./packages/core
@@ -31,7 +31,7 @@ services:
       - 9000:9000
     networks:
       zacal:
-        ipv4_address: 10.8.0.3
+        ipv4_address: 10.9.0.3
 
   web:
     build: ./packages/web
@@ -43,12 +43,12 @@ services:
       - 8000:8000
     networks:
       zacal:
-        ipv4_address: 10.8.0.4
+        ipv4_address: 10.9.0.4
 
 networks:
   zacal:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.8.0.0/16
-          gateway: 10.8.0.1
+        - subnet: 10.9.0.0/16
+          gateway: 10.9.0.1
