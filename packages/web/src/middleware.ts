@@ -18,7 +18,7 @@ async function getRegionMap() {
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
-    console.log(`${BACKEND_URL}/store/regions`);
+    console.log(`${BACKEND_URL}/store/regions`)
     const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
       next: {
         revalidate: 3600,
@@ -85,7 +85,7 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams
+  /*const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
@@ -135,7 +135,7 @@ export async function middleware(request: NextRequest) {
     response.cookies.set("_medusa_onboarding", "true", { maxAge: 60 * 60 * 24 })
   }
 
-  return response
+  return response*/
 }
 
 export const config = {

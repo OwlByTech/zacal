@@ -4,61 +4,60 @@ import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import image from "/public/logo.png"
+import Image from "next/image"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
-          </div>
+    <div className="">
+      <header className=" mx-auto border-b h-screen duration-200 bg-white flex flex-col p-4 gap-2 border-r">
+        <div className="flex flex-col items-center justify-center flex-grow">
+          <img src="/logo.png" alt="" width={200} height={200} />
 
-          <div className="flex items-center h-full">
+          <div className="flex flex-row gap-5">
             <LocalizedClientLink
+              className="hover:bg-[#F8CB56] text-black p-2"
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              Home
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              className="hover:bg-[#F8CB56] text-black p-2"
+              href="/categories"
+            >
+              CATEGORIES
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              className="hover:bg-[#F8CB56] text-black p-2"
+              href="/"
+            >
+              ON SALE
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              className="hover:bg-[#F8CB56] text-black p-2"
+              href="/account"
+            >
+              ACOUNT
             </LocalizedClientLink>
           </div>
-
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              {process.env.FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                >
-                  Search
-                </LocalizedClientLink>
-              )}
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-              >
-                Account
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
+        </div>
+        <Suspense
+          fallback={
+            <LocalizedClientLink
+              className="hover:text-ui-fg-base flex gap-2"
+              href="/cart"
             >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
+              Cart (0)
+            </LocalizedClientLink>
+          }
+        >
+          <CartButton />
+        </Suspense>
       </header>
     </div>
   )
