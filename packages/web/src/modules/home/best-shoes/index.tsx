@@ -6,7 +6,7 @@ export default function BestShoes() {
   return (
     <div
       style={{ backgroundSize: "100% 100%" }}
-      className="flex flex-col justify-between felx-grow bg-[url('/shoeOne.png')] h-[250px] 2xl:h-[400px] m-7"
+      className="flex flex-col justify-between felx-grow bg-[url('/shoeOne.png')] h-[500px] 2xl:h-[600px] my-4 mx-10"
     >
       <LocalizedClientLink
         className="bg-principal-0 w-40 text-center border border-principal-950 text-principal-950 p-2"

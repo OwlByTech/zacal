@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
-    <section className="flex flex-row">
+    <section className="flex flex-col">
       <Nav />
       <div className="flex-grow">
         <AdAccount />

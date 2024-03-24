@@ -7,14 +7,14 @@ import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import Arrow from "@modules/common/components/arrow"
 
-export default async function BestDeals() {
+export default function BestDeals() {
   return (
-    <section className="flex flex-row justify-between">
+    <section className="mx-10 flex flex-row justify-between">
       <div>
         <p className="text-4xl">TODAY BEST DEALS</p>
         <p className="text-base">You must have today</p>
       </div>
-      <div>
+      <div className="flex flex-row gap-4">
         <Arrow onClick={() => {}} />
         <Arrow onClick={() => {}} direction />
       </div>

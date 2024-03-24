@@ -10,6 +10,7 @@ import BestDeals from "@modules/home/best-deals"
 import AdShoesEver from "@modules/home/ad-shoes-ever"
 import BestShoes from "@modules/home/best-shoes"
 import Outlet from "@modules/home/outlet"
+import BestDealsCategory from "@modules/home/templates/best-deals"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -72,12 +73,14 @@ export default async function Home({
 
   return (
     <>
-      <div className="flex flex-col m-20 gap-20">
+      <div className="flex flex-col  gap-20">
         <BestShoes />
+
         <BestDeals />
+        <BestDealsCategory region={region} />
       </div>
       <AdShoesEver />
-      <div className="flex-col m-20 gap-20">
+      <div className="flex-col  gap-20">
         <Outlet />
       </div>
       <div className="py-12">

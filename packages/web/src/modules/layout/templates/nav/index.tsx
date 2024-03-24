@@ -11,54 +11,50 @@ export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <div className="">
-      <header className=" mx-auto border-b h-screen duration-200 bg-white flex flex-col p-4 gap-2 border-r">
-        <div className="flex flex-col items-center justify-center flex-grow">
-          <img src="/logo.png" alt="" width={200} height={200} />
+    <header className="sticky top-0 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row py-4 px-6 shadow-md  gap-2 border-r">
+      <img src="/logo.png" alt="" width={60} height={60} />
 
-          <div className="flex flex-row gap-5">
-            <LocalizedClientLink
-              className="hover:bg-[#F8CB56] text-black p-2"
-              href="/"
-            >
-              Home
-            </LocalizedClientLink>
-
-            <LocalizedClientLink
-              className="hover:bg-[#F8CB56] text-black p-2"
-              href="/categories"
-            >
-              CATEGORIES
-            </LocalizedClientLink>
-
-            <LocalizedClientLink
-              className="hover:bg-[#F8CB56] text-black p-2"
-              href="/"
-            >
-              ON SALE
-            </LocalizedClientLink>
-
-            <LocalizedClientLink
-              className="hover:bg-[#F8CB56] text-black p-2"
-              href="/account"
-            >
-              ACOUNT
-            </LocalizedClientLink>
-          </div>
-        </div>
-        <Suspense
-          fallback={
-            <LocalizedClientLink
-              className="hover:text-ui-fg-base flex gap-2"
-              href="/cart"
-            >
-              Cart (0)
-            </LocalizedClientLink>
-          }
+      <div className="flex flex-row gap-5">
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/"
         >
-          <CartButton />
-        </Suspense>
-      </header>
-    </div>
+          Home
+        </LocalizedClientLink>
+
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/categories"
+        >
+          CATEGORIES
+        </LocalizedClientLink>
+
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/"
+        >
+          ON SALE
+        </LocalizedClientLink>
+
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/account"
+        >
+          ACOUNT
+        </LocalizedClientLink>
+      </div>
+      <Suspense
+        fallback={
+          <LocalizedClientLink
+            className="hover:text-ui-fg-base flex gap-2"
+            href="/cart"
+          >
+            Cart (0)
+          </LocalizedClientLink>
+        }
+      >
+        <CartButton />
+      </Suspense>
+    </header>
   )
 }
