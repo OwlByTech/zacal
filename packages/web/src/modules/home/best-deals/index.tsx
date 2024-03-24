@@ -9,7 +9,7 @@ import Arrow from "@modules/common/components/arrow"
 
 export default function BestDeals() {
   return (
-    <section className="mx-10 flex flex-row justify-between">
+    <section className="flex flex-row justify-between">
       <div>
         <p className="text-4xl">TODAY BEST DEALS</p>
         <p className="text-base">You must have today</p>

@@ -30,7 +30,7 @@ export default function Outlet() {
             EXCLUCIVE MEMBERS
           </LocalizedClientLink>
         </div>
-        <div>
+        <div className="flex flex-row gap-4">
           <Arrow onClick={() => {}} />
           <Arrow onClick={() => {}} direction />
         </div>

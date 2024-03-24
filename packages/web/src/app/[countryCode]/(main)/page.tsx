@@ -73,15 +73,16 @@ export default async function Home({
 
   return (
     <>
-      <div className="flex flex-col  gap-20">
-        <BestShoes />
-
-        <BestDeals />
-        <BestDealsCategory region={region} />
-      </div>
-      <AdShoesEver />
-      <div className="flex-col  gap-20">
-        <Outlet />
+      <div className="flex flex-col gap-20">
+        <div className="mx-10 flex flex-col gap-20">
+          <BestShoes />
+          <BestDeals />
+          <BestDealsCategory region={region} />
+        </div>
+        <AdShoesEver />
+        <div className="mx-10  flex flex-col gap-20">
+          <Outlet />
+        </div>
       </div>
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
