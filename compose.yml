@@ -42,6 +42,10 @@ services:
     env_file: .env
     ports:
       - 8000:8000
+    depends_on:
+      db:
+        condition: service_healthy
+
     networks:
       zacal:
         ipv4_address: 10.9.0.4
@@ -54,6 +58,9 @@ services:
       - ./.docker-volumes/uploads:/directus/uploads
       - ./.docker-volumes/extensions:/directus/extensions
     env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       zacal:
         ipv4_address: 10.9.0.5
