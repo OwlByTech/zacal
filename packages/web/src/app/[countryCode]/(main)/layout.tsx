@@ -14,9 +14,9 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <section className="flex flex-col">
       <Nav />
-      <div className="flex-grow">
+      <div className="flex-grow ">
         <AdAccount />
-        {props.children}
+        <div className="flex flex-col gap-20">{props.children}</div>
         <Footer />
       </div>
     </section>
