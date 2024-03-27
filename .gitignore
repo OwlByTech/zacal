@@ -1,6 +1,3 @@
-# Remove docker volumes
-.docker-volumes
-
 # Logs
 logs
 *.log
