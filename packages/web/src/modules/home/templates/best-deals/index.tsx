@@ -26,11 +26,11 @@ export default async function BestDealsCategory({ region }: Props) {
   })
 
   return (
-    <section className="mx-10 flex flex-row justify-between">
+    <section className=" flex w-full flex-row justify-between overflow-scroll">
       {" "}
-      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
+      <ul className="flex flex-grow  flex-row gap-x-6 gap-y-24 small:gap-y-36 ">
         {products?.map((product) => (
-          <li key={product.id}>
+          <li key={product.id} className="small:w-1/3 ">
             <ProductPreview
               productPreview={product}
               region={region}
