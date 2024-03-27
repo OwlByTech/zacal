@@ -14,9 +14,24 @@ type Props = {
 }
 
 export default async function BestDealsCategory({ region }: Props) {
-  const { product_categories } = await getCategoryByHandle(["best-deal"]).then(
-    (product_categories) => product_categories
+  const product_categories = await getCategoryByHandle(["best-deal"]).then(
+    (product_categories) => {
+      return product_categories.product_categories.filter(function (element) {
+        return element !== undefined
+      })
+    }
   )
+
+  console.log(product_categories)
+
+  if (product_categories.length == 0) {
+    return (
+      <section>
+        <h1>No existe</h1>
+      </section>
+    )
+  }
+
   const {
     response: { products, count },
   } = await getProductsListWithSort({
