@@ -6,11 +6,11 @@ import FeaturedProducts from "@modules/home/featured-products"
 import Hero from "@modules/home/components/hero"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
-import BestDeals from "@modules/home/best-deals"
-import AdShoesEver from "@modules/home/ad-shoes-ever"
-import BestShoes from "@modules/home/best-shoes"
-import Outlet from "@modules/home/outlet"
 import BestDealsCategory from "@modules/home/templates/best-deals"
+import BestShoes from "@modules/home/components/best-shoes"
+import BestDeals from "@modules/home/components/best-deals"
+import AdShoesEver from "@modules/home/components/ad-shoes-ever"
+import Outlet from "@modules/home/outlet"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
