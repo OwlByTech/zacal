@@ -11,6 +11,7 @@ import AdShoesEver from "@modules/home/ad-shoes-ever"
 import BestShoes from "@modules/home/best-shoes"
 import Outlet from "@modules/home/outlet"
 import BestDealsCategory from "@modules/home/templates/best-deals"
+import BestShoesCategory from "@modules/home/templates/best-shoes"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
