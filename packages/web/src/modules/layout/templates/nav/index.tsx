@@ -11,8 +11,8 @@ export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <header className="sticky top-0 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row py-4 px-6 shadow-md  gap-2 border-r">
-      <img src="/logo.png" alt="" width={60} height={60} />
+    <header className="sticky top-0 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row py-4 px-20 shadow-md  gap-2 border-r">
+      <img src="/logo.png" alt="" width={80} height={80} />
 
       <div className="flex flex-row gap-5">
         <LocalizedClientLink
