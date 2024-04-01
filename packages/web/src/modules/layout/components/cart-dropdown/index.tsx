@@ -95,14 +95,14 @@ const CartDropdown = ({
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className="hidden shadow-lg small:block absolute top-[calc(100%+1px)] right-0 bg-white border border-black w-[420px] text-ui-fg-base"
           >
             <div className="p-4 flex items-center justify-center">
               <h3 className="text-large-semi">Cart</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
-                <div className="overflow-y-scroll max-h-[402px] px-4 grid grid-cols-1 gap-y-8 no-scrollbar p-px">
+                <div className=" overflow-y-scroll max-h-[402px] px-4 grid grid-cols-1 gap-y-8 no-scrollbar p-px">
                   {cartState.items
                     .sort((a, b) => {
                       return a.created_at > b.created_at ? -1 : 1
@@ -163,7 +163,10 @@ const CartDropdown = ({
                     </span>
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
-                    <Button className="w-full" size="large">
+                    <Button
+                      className="w-full h-12 font-medium text-xl   rounded-none  bg-[#F8CB56] hover:bg-[#F8CB56] text-black "
+                      size="large"
+                    >
                       Go to cart
                     </Button>
                   </LocalizedClientLink>
