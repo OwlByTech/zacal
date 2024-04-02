@@ -20,5 +20,60 @@ export default function BestShoes() {
 
   console.log(posts)
 
-  return <></>
+  return (
+    <>
+      {posts.map((post) => {
+        return (
+          <section className="flex flex-row">
+            <div
+              style={{
+                backgroundSize: "100% 100%",
+                backgroundImage: `url("http://localhost:8055/assets/${post.photo}")`,
+              }}
+              className="h-[800px] w-[1300px]"
+            >
+              <LocalizedClientLink
+                className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
+                href="/"
+              >
+                Casual
+              </LocalizedClientLink>
+            </div>
+
+            <div className="flex flex-col">
+              <div
+                style={{
+                  backgroundSize: "100% 100%",
+                  backgroundImage: `url("http://localhost:8055/assets/${post.photo_two}")`,
+                }}
+                className="h-[400px] w-[700px]"
+              >
+                <LocalizedClientLink
+                  className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
+                  href="/"
+                >
+                  Sports
+                </LocalizedClientLink>
+              </div>
+
+              <div
+                style={{
+                  backgroundSize: "100% 100%",
+                  backgroundImage: `url("http://localhost:8055/assets/${post.photo_three}")`,
+                }}
+                className="h-[400px] w-[700px]"
+              >
+                <LocalizedClientLink
+                  className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
+                  href="/"
+                >
+                  Belts
+                </LocalizedClientLink>
+              </div>
+            </div>
+          </section>
+        )
+      })}
+    </>
+  )
 }

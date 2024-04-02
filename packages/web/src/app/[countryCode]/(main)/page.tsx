@@ -11,7 +11,6 @@ import AdShoesEver from "@modules/home/components/ad-shoes-ever"
 import BestShoes from "@modules/home/components/best-shoes"
 import Outlet from "@modules/home/outlet"
 import BestDealsCategory from "@modules/home/templates/best-deals"
-import Directus from "@directus/sdk"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -75,8 +74,8 @@ export default async function Home({
   return (
     <>
       <div className="flex flex-col gap-20">
+        <BestShoes />
         <div className="mx-10 flex flex-col gap-20">
-          <BestShoes />
           <BestDeals />
           <BestDealsCategory region={region} />
         </div>
