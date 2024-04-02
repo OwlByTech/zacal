@@ -7,7 +7,7 @@ import SideMenu from "@modules/layout/components/side-menu"
 
 type Props = { onClick: any; direction?: boolean }
 
-export default async function Arrow({ onClick, direction }: Props) {
+export default function Arrow({ onClick, direction }: Props) {
   return (
     <button
       className={` border border-black bg-white p-1 ${
