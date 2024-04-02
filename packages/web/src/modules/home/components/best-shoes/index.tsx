@@ -21,59 +21,29 @@ export default function BestShoes() {
   console.log(posts)
 
   return (
-    <>
-      {posts.map((post) => {
-        return (
-          <section className="flex flex-row">
-            <div
-              style={{
-                backgroundSize: "100% 100%",
-                backgroundImage: `url("http://localhost:8055/assets/${post.photo}")`,
-              }}
-              className="h-[800px] w-[1300px]"
-            >
-              <LocalizedClientLink
-                className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
-                href="/"
-              >
-                Casual
-              </LocalizedClientLink>
-            </div>
-
-            <div className="flex flex-col">
+    <div className="flex flex-row w-screen">
+      {posts.map((post) => (
+        <>
+          {post.photo && (
+            <section className="flex flex-row w-1/3">
               <div
                 style={{
                   backgroundSize: "100% 100%",
-                  backgroundImage: `url("http://localhost:8055/assets/${post.photo_two}")`,
+                  backgroundImage: `url("http://localhost:8055/assets/${post.photo}")`,
                 }}
-                className="h-[400px] w-[700px]"
+                className="w-full h-[600px]"
               >
                 <LocalizedClientLink
                   className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
                   href="/"
                 >
-                  Sports
+                  {post.name}
                 </LocalizedClientLink>
               </div>
-
-              <div
-                style={{
-                  backgroundSize: "100% 100%",
-                  backgroundImage: `url("http://localhost:8055/assets/${post.photo_three}")`,
-                }}
-                className="h-[400px] w-[700px]"
-              >
-                <LocalizedClientLink
-                  className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
-                  href="/"
-                >
-                  Belts
-                </LocalizedClientLink>
-              </div>
-            </div>
-          </section>
-        )
-      })}
-    </>
+            </section>
+          )}
+        </>
+      ))}
+    </div>
   )
 }

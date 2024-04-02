@@ -76,7 +76,6 @@ export default async function Home({
       <div className="flex flex-col gap-20">
         <BestShoes />
         <div className="mx-10 flex flex-col gap-20">
-          <BestDeals />
           <BestDealsCategory region={region} />
         </div>
         <AdShoesEver />
