@@ -1,13 +1,17 @@
-import { Suspense } from "react"
+import { Suspense, useState } from "react"
 
 import {
   getCategoryByHandle,
+  getMedusaHeaders,
   getProductsListWithSort,
   listRegions,
 } from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
 import { json } from "stream/consumers"
+import Arrow from "@modules/common/components/arrow"
+import BestDeals from "@modules/home/components/best-deals"
+import CategoryView from "@modules/home/components/categories-view"
 
 type Props = {
   region: Region
@@ -32,6 +36,7 @@ export default async function BestDealsCategory({ region }: Props) {
     )
   }
 
+  const header = getMedusaHeaders(["products"])
   const {
     response: { products, count },
   } = await getProductsListWithSort({
@@ -41,19 +46,11 @@ export default async function BestDealsCategory({ region }: Props) {
   })
 
   return (
-    <section className="flex flex-row justify-between overflow-x-scroll">
-      {" "}
-      <ul className="flex flex-row flex-grow gap-x-6 gap-y-24 small:gap-y-36">
-        {products?.map((product) => (
-          <li key={product.id} className="small:w-1/3 ">
-            <ProductPreview
-              productPreview={product}
-              region={region}
-              isFeatured
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <CategoryView header={header} region={region} products={products}>
+        <p className="text-4xl">TODAY BEST DEALS</p>
+        <p className="text-base">You must have today</p>
+      </CategoryView>
+    </>
   )
 }

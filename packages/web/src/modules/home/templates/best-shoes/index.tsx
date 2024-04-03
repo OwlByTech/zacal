@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import { Suspense, useState } from "react"
 
 import {
   getCategoryByHandle,
@@ -8,6 +8,7 @@ import {
 import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
 import { json } from "stream/consumers"
+import Arrow from "@modules/common/components/arrow"
 
 type Props = {
   region: Region
@@ -36,24 +37,23 @@ export default async function BestDealsCategory({ region }: Props) {
     response: { products, count },
   } = await getProductsListWithSort({
     queryParams: { category_id: [product_categories[0].id] },
-    countryCode: "es",
-    page: 1,
+    countryCode: "co",
   })
 
   return (
-    <section className=" flex w-full flex-row justify-between overflow-scroll">
-      {" "}
-      <ul className="flex flex-grow  flex-row gap-x-6 gap-y-24 small:gap-y-36 ">
-        {products?.map((product) => (
-          <li key={product.id} className="small:w-1/3 ">
+    <>
+      <section className=" flex w-full flex-row justify-between overflow-scroll">
+        {"asflsd "}
+        <ul className="flex flex-grow  flex-row gap-x-6 gap-y-24 small:gap-y-36 ">
+          <li key={products[index]?.id} className="small:w-1/3 ">
             <ProductPreview
-              productPreview={product}
+              productPreview={products[index]}
               region={region}
               isFeatured
             />
           </li>
-        ))}
-      </ul>
-    </section>
+        </ul>
+      </section>
+    </>
   )
 }

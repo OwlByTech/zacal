@@ -1,5 +1,5 @@
 "use client"
-import { Suspense, useState } from "react"
+import { ReactNode, Suspense, useState } from "react"
 
 import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -10,24 +10,23 @@ import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
 import ProductPreviewClient from "@modules/products/components/product-preview-client"
 
-export default function BestDeals({
+export default function CategoryView({
   products,
   region,
   header,
+  children,
 }: {
   products: any
   region: Region
   header: any
+  children: ReactNode
 }) {
   const [index, setIndex] = useState(0)
   console.log(products)
   return (
     <>
       <section className="flex flex-row justify-between">
-        <div>
-          <p className="text-4xl">TODAY BEST DEALS</p>
-          <p className="text-base">You must have today</p>
-        </div>
+        <div>{children}</div>
         <div className="flex flex-row gap-4">
           <Arrow
             onClick={() => {
