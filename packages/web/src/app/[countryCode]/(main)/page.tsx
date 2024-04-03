@@ -9,6 +9,7 @@ import AdShoesEver from "@modules/home/components/ad-shoes-ever"
 import BestShoes from "@modules/home/components/best-shoes"
 import Outlet from "@modules/home/outlet"
 import BestDealsCategory from "@modules/home/templates/best-deals"
+import OutletCategory from "@modules/home/templates/outlet"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -78,7 +79,7 @@ export default async function Home({
         </div>
         <AdShoesEver />
         <div className="mx-10  flex flex-col gap-20">
-          <Outlet />
+          <OutletCategory region={region} />
         </div>
       </div>
       <div className="py-12">

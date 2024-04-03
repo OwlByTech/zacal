@@ -17,12 +17,10 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
               className="relative aspect-[29/34] w-full rounded-none overflow-hidden bg-ui-bg-subtle"
               id={image.id}
             >
-              <Image
+              <img
                 src={image.url}
-                priority={index <= 2 ? true : false}
-                className="absolute rounded-none inset-0 border border-black"
+                className="h-full w-full object-cover absolute rounded-none inset-0 border border-black"
                 alt={`Product image ${index + 1}`}
-                fill
                 sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
                 style={{
                   objectFit: "cover",

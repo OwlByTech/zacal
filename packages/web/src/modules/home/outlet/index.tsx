@@ -1,40 +1,76 @@
 "use client"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { Button } from "@medusajs/ui"
 import Arrow from "@modules/common/components/arrow"
+import { useState } from "react"
+import CategoryView from "../components/categories-view"
+import { Region } from "@medusajs/medusa"
 
-export default function Outlet() {
+export default function Outlet({
+  new_products,
+  exclusive_products,
+  colection_products,
+  header,
+  region,
+}: {
+  new_products: any
+  exclusive_products: any
+  colection_products: any
+  header: any
+  region: Region
+}) {
+  const [button, setButton] = useState(0)
+  const [products, setProducts] = useState(new_products)
   return (
-    <section className="flex flex-col px-2 gap-5">
-      <div>
-        <p className="text-4xl">OUTLET</p>
-        <p className="text-base">You must have today</p>
-      </div>
-      <div className="flex flex-row justify-between">
-        <div className="flex gap-5">
-          <LocalizedClientLink
-            className="hover:bg-principal-950 hover:text-principal-0 bg-principal-0 border border-principal-950 text-principal-950 p-2.5"
-            href="/"
-          >
-            NEWS
-          </LocalizedClientLink>
-          <LocalizedClientLink
-            className="hover:bg-principal-950 hover:text-principal-0 bg-principal-0 border border-principal-950 text-principal-950 p-2.5"
-            href="/"
-          >
-            COLECTION
-          </LocalizedClientLink>
-          <LocalizedClientLink
-            className="hover:bg-principal-950 hover:text-principal-0 bg-principal-0 border border-principal-950 text-principal-950 p-2.5"
-            href="/"
-          >
-            EXCLUCIVE MEMBERS
-          </LocalizedClientLink>
+    <CategoryView products={products} header={header} region={region}>
+      <section className="flex flex-col px-2 gap-5">
+        <div>
+          <p className="text-4xl">OUTLET</p>
+          <p className="text-base">You must have today</p>
         </div>
-        <div className="flex flex-row gap-4">
-          <Arrow onClick={() => {}} />
-          <Arrow onClick={() => {}} direction />
+        <div className="flex flex-row justify-between">
+          <div className="flex gap-5">
+            <Button
+              onClick={() => {
+                setButton(0)
+                setProducts(new_products)
+              }}
+              className={`hover:bg-principal-950 hover:text-principal-0 ${
+                button === 0
+                  ? "bg-black text-white"
+                  : "bg-principal-0 text-principal-950 "
+              } rounded-none border border-principal-950 p-2.5`}
+            >
+              NEWS
+            </Button>
+            <Button
+              onClick={() => {
+                setButton(1)
+                setProducts(colection_products)
+              }}
+              className={`hover:bg-principal-950 hover:text-principal-0 ${
+                button === 1
+                  ? "bg-black text-white"
+                  : "bg-principal-0 text-principal-950"
+              } rounded-none border border-principal-950  p-2.5`}
+            >
+              COLECTION
+            </Button>
+            <Button
+              onClick={() => {
+                setButton(2)
+                setProducts(exclusive_products)
+              }}
+              className={`hover:bg-principal-950 hover:text-principal-0 ${
+                button === 2
+                  ? "bg-black text-white"
+                  : "bg-principal-0 text-principal-950"
+              } rounded-none border border-principal-950  p-2.5`}
+            >
+              EXCLUCIVE MEMBERS
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </CategoryView>
   )
 }
