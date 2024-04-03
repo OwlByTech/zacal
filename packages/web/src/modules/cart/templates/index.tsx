@@ -14,20 +14,20 @@ const CartTemplate = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   return (
-    <div className="py-12">
+    <div className="py-12 px-20">
       <div className="content-container">
         {cart?.items.length ? (
-          <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-40">
+          <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-10">
             <div className="flex flex-col bg-white py-6 gap-y-6">
-              {!customer && (
+              {/*!customer && (
                 <>
                   <SignInPrompt />
                   <Divider />
                 </>
-              )}
+              )*/}
               <ItemsTemplate region={cart?.region} items={cart?.items} />
             </div>
-            <div className="relative">
+            <div className="relative small:border-l-4 small:pl-10 border-gray-500">
               <div className="flex flex-col gap-y-8 sticky top-12">
                 {cart && cart.region && (
                   <>

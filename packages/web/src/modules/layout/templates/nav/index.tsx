@@ -11,12 +11,12 @@ export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <header className="sticky top-0 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row py-4 px-20 shadow-md  gap-2 border-r">
-      <img src="/logo.png" alt="" width={80} height={80} />
+    <header className="sticky top-0  h-20 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row  px-20 shadow-md  gap-2 border-r">
+      <img src="/logo.png" alt="" width={75} height={75} />
 
       <div className="flex flex-row gap-5">
         <LocalizedClientLink
-          className="hover:bg-[#F8CB56] text-black p-2"
+          className="hover:bg-[#F8CB56] text-black text-md p-2"
           href="/"
         >
           Home
