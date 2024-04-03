@@ -41,19 +41,25 @@ export default async function BestDealsCategory({ region }: Props) {
   })
 
   return (
-    <section className="flex flex-row justify-between overflow-x-scroll">
+    <section className="flex flex-col justify-between gap-20">
       {" "}
-      <ul className="flex flex-row flex-grow gap-x-6 gap-y-24 small:gap-y-36">
-        {products?.map((product) => (
-          <li key={product.id} className="small:w-1/3 ">
-            <ProductPreview
-              productPreview={product}
-              region={region}
-              isFeatured
-            />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <p className="text-4xl">TODAY BEST DEALS</p>
+        <p className="text-base">You must have today</p>
+      </div>
+      <div className="flex flex-row justify-between overflow-x-scroll">
+        <ul className="flex flex-row flex-grow gap-x-6 gap-y-24 small:gap-y-36">
+          {products?.map((product) => (
+            <li key={product.id} className="small:w-1/3 ">
+              <ProductPreview
+                productPreview={product}
+                region={region}
+                isFeatured
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }
