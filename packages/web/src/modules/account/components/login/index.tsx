@@ -38,13 +38,15 @@ const Login = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} />
-        <SubmitButton className="w-full mt-6">Sign in</SubmitButton>
+        <SubmitButton className="w-full mt-6 hover:bg-principal-400 hover:text-principal-950 rounded-none">
+          Sign in
+        </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
         Not a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-          className="underline"
+          className="underline hover:text-principal-500"
         >
           Join us
         </button>
