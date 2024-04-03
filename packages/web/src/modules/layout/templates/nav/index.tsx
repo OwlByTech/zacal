@@ -33,7 +33,7 @@ export default async function Nav() {
           className="hover:bg-[#F8CB56] text-black p-2"
           href="/store"
         >
-          ON SALE
+          STORE
         </LocalizedClientLink>
 
         <LocalizedClientLink
