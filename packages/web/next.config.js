@@ -5,6 +5,15 @@ const store = require("./store.config.json")
  * @type {import('next').NextConfig}
  */
 const nextConfig = withStoreConfig({
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/co",
+        permanent: true,
+      },
+    ]
+  },
   features: store.features,
   reactStrictMode: true,
   images: {
