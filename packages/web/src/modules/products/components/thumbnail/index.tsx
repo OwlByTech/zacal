@@ -51,7 +51,7 @@ const ImageOrPlaceholder = ({
       <img
         src={image}
         alt="Thumbnail"
-        className=" h-full w-full border-none absolute inset-0 object-cover"
+        className=" h-full w-full border-none absolute inset-0 object-fill"
         draggable={false}
         sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
       />
