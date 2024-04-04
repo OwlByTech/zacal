@@ -43,7 +43,7 @@ export default async function ProductPreview({
           size="full"
           isFeatured={isFeatured}
         />
-        <div className=" p-2 flex txt-compact-medium mt-4 justify-between ">
+        <div className="flex-col p-2 flex txt-compact-medium mt-4 justify-between ">
           <Text className="text-ui-fg-subtle lg:text-xl">
             {productPreview.title}
           </Text>
