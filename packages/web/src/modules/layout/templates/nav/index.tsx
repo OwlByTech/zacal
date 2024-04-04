@@ -19,28 +19,28 @@ export default async function Nav() {
           className="hover:bg-[#F8CB56] text-black text-md p-2"
           href="/"
         >
-          Home
+          INICIO
         </LocalizedClientLink>
 
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black p-2"
           href="/categories"
         >
-          CATEGORIES
+          CATEGORIAS
         </LocalizedClientLink>
 
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black p-2"
           href="/store"
         >
-          STORE
+          TIENDA
         </LocalizedClientLink>
 
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black p-2"
           href="/account"
         >
-          ACOUNT
+          CUENTA
         </LocalizedClientLink>
       </div>
       <Suspense
