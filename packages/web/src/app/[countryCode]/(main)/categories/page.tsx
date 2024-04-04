@@ -12,12 +12,7 @@ export default function Page() {
       console.log(result)
       setPosts(result)
     })
-    return () => {
-      // Esto se ejecuta cuando el componente no este en pantalla
-    }
   }, [])
-
-  console.log(posts)
 
   return (
     <div className="grid grid-cols-3 w-screen">

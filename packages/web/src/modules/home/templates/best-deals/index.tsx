@@ -26,8 +26,6 @@ export default async function BestDealsCategory({ region }: Props) {
     }
   )
 
-  console.log(product_categories)
-
   if (product_categories.length == 0) {
     return (
       <section>

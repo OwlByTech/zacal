@@ -22,7 +22,6 @@ export default function CategoryView({
   children: ReactNode
 }) {
   const [index, setIndex] = useState(0)
-  console.log(products)
   return (
     <>
       <section className="flex flex-row justify-between">

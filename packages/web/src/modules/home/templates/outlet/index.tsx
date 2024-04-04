@@ -42,7 +42,6 @@ export default async function OutletCategory({ region }: Props) {
     })
   })
 
-  console.log(product_categories)
   const header = getMedusaHeaders(["products"])
   const {
     response: { products: exclusive_products, count },

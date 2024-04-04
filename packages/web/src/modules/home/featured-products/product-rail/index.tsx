@@ -17,7 +17,6 @@ export default function ProductRail({
   if (!products) {
     return null
   }
-  console.log(products)
   return (
     <div className="content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">

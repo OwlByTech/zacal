@@ -14,7 +14,6 @@ export const retrievePricedProductById = cache(async function ({
     .retrieve(`${id}?region_id=${regionId}`, header)
     .then(({ product }) => product)
     .catch((err) => {
-      console.log(err)
       return null
     })
 })
