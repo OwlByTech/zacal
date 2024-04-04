@@ -20,7 +20,6 @@ export default function BestDeals({
   header: any
 }) {
   const [index, setIndex] = useState(0)
-  console.log(products)
   return (
     <>
       <section className="flex flex-row justify-between">

@@ -19,12 +19,6 @@ const CartTemplate = ({
         {cart?.items.length ? (
           <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-10">
             <div className="flex flex-col bg-white py-6 gap-y-6">
-              {/*!customer && (
-                <>
-                  <SignInPrompt />
-                  <Divider />
-                </>
-              )*/}
               <ItemsTemplate region={cart?.region} items={cart?.items} />
             </div>
             <div className="relative small:border-l-4 small:pl-10 border-gray-500">
