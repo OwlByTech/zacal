@@ -22,7 +22,7 @@ export default function BestShoes() {
               <div
                 style={{
                   backgroundSize: "100% 100%",
-                  backgroundImage: `url("http://localhost:8055/assets/${post.photo}")`,
+                  backgroundImage: `url("${process.env.API_URL_DIRECTUS}/assets/${post.photo}")`,
                 }}
                 className="w-full h-[600px]"
               >
