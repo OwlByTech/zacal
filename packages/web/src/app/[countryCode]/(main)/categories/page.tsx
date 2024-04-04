@@ -1,11 +1,10 @@
 "use client"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Arrow from "@modules/common/components/arrow"
-import { useEffect, useState } from "react"
-import directus from "@lib/data/directus"
 import { readItems } from "@directus/sdk"
+import directus from "@lib/data/directus"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { useEffect, useState } from "react"
 
-export default function BestShoes() {
+export default function Page() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -21,11 +20,11 @@ export default function BestShoes() {
   console.log(posts)
 
   return (
-    <div className="flex flex-row w-screen">
+    <div className="grid grid-cols-3 w-screen">
       {posts.map((post) => (
         <>
-          {post.photo && post.isPrincipal && (
-            <section className="flex flex-row w-1/3">
+          {post.photo && (
+            <section className="flex flex-row ">
               <div
                 style={{
                   backgroundSize: "100% 100%",

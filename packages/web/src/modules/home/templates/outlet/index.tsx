@@ -19,7 +19,7 @@ type Props = {
 }
 
 export default async function OutletCategory({ region }: Props) {
-  const product_categories = await getCategoryByHandle(["best-deal"]).then(
+  const product_categories = await getCategoryByHandle(["exclucive"]).then(
     (product_categories) => {
       return product_categories.product_categories.filter(function (element) {
         return element !== undefined

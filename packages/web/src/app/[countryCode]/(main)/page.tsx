@@ -12,7 +12,7 @@ import BestDealsCategory from "@modules/home/templates/best-deals"
 import OutletCategory from "@modules/home/templates/outlet"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Zacal",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }

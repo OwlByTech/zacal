@@ -41,7 +41,7 @@ export default async function BestDealsCategory({ region }: Props) {
     response: { products, count },
   } = await getProductsListWithSort({
     queryParams: { category_id: [product_categories[0].id] },
-    countryCode: "es",
+    countryCode: "co",
     page: 1,
   })
 
