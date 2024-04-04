@@ -13,7 +13,7 @@ export default function NotFound() {
       <h1 className="text-2xl-semi text-ui-fg-base">Pagina no funciona</h1>
       <p className="text-small-regular text-ui-fg-base">
         El carrito al que intentaste acceder no existe. Borra las cookies y
-        vuelve a intentarlo."
+        vuelve a intentarlo.
       </p>
       <InteractiveLink href="/">Ir a inicio</InteractiveLink>
     </div>
