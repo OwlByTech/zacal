@@ -4,7 +4,20 @@ const store = require("./store.config.json")
 /**
  * @type {import('next').NextConfig}
  */
+const nextEnv = require("@next/env")
+const path = require("path")
+const dotenv = require("dotenv")
+
+const envPath = path.join(__dirname, "..", "..", ".env")
+dotenv.config({
+  path: envPath,
+})
 const nextConfig = withStoreConfig({
+  env: {
+    API_URL_DIRECTUS: process.env.API_URL_DIRECTUS,
+    ADMIN_EMAIL_DIRECTUS: process.env.ADMIN_EMAIL_DIRECTUS,
+    ADMIN_PASSWORD_DIRECTUS: process.env.ADMIN_PASSWORD_DIRECTUS,
+  },
   async redirects() {
     return [
       {
