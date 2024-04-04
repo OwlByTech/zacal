@@ -13,7 +13,7 @@ const Help = () => {
           </li>
           <li>
             <LocalizedClientLink href="/contact">
-              Returns & Exchanges
+              Devoluciones y Cambios
             </LocalizedClientLink>
           </li>
         </ul>

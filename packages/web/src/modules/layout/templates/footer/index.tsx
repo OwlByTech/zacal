@@ -13,14 +13,14 @@ export default async function Footer() {
     <footer className="flex flex-col border-t border-ui-border-base w-full bg-black h-[400px]">
       <div className="flex flex-row justify-between p-10">
         <p className="text-white font-bold text-2xl uppercase">
-          what is your waiting for?
+          ¿Qué estás esperando?
         </p>
 
         <LocalizedClientLink
           className="bg-[#F8CB56] text-black p-2"
           href="/account"
         >
-          CREATE ACOUNT
+          CREAR CUENTA
         </LocalizedClientLink>
       </div>
 

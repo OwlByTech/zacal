@@ -45,6 +45,6 @@ const CountrySelect = forwardRef<
   )
 })
 
-CountrySelect.displayName = "CountrySelect"
+CountrySelect.displayName = "Seleccion de Pais"
 
 export default CountrySelect

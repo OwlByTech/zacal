@@ -48,8 +48,8 @@ export default async function BestDealsCategory({ region }: Props) {
   return (
     <>
       <CategoryView header={header} region={region} products={products}>
-        <p className="text-4xl">TODAY BEST DEALS</p>
-        <p className="text-base">You must have today</p>
+        <p className="text-4xl">MEJORES ZAPATOS</p>
+        <p className="text-base">Lo debes tener hoy</p>
       </CategoryView>
     </>
   )

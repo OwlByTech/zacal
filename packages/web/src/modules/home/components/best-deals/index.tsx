@@ -25,8 +25,8 @@ export default function BestDeals({
     <>
       <section className="flex flex-row justify-between">
         <div>
-          <p className="text-4xl">TODAY BEST DEALS</p>
-          <p className="text-base">You must have today</p>
+          <p className="text-4xl">MEJORES OFERTAS</p>
+          <p className="text-base">Lo debes tener hoy</p>
         </div>
         <div className="flex flex-row gap-4">
           <Arrow

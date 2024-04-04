@@ -46,13 +46,13 @@ const AddAddress = ({ region }: { region: Region }) => {
         className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
         onClick={open}
       >
-        <span className="text-base-semi">New address</span>
+        <span className="text-base-semi">Nueva Direccion</span>
         <Plus />
       </button>
 
       <Modal isOpen={state} close={close}>
         <Modal.Title>
-          <Heading className="mb-2">Add address</Heading>
+          <Heading className="mb-2">Añadir Direccion</Heading>
         </Modal.Title>
         <form action={formAction}>
           <Modal.Body>
@@ -128,9 +128,9 @@ const AddAddress = ({ region }: { region: Region }) => {
                 onClick={close}
                 className="h-10"
               >
-                Cancel
+                Cancelar
               </Button>
-              <SubmitButton>Save</SubmitButton>
+              <SubmitButton>Guardar</SubmitButton>
             </div>
           </Modal.Footer>
         </form>

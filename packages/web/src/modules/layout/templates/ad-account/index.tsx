@@ -9,7 +9,7 @@ export default async function AdAccount() {
   return (
     <div className="flex flex-col items-center justify-center flex-grow bg-black">
       <LocalizedClientLink className="text-white font-bold p-2" href="/account">
-        Create your account and recieved 30% of discount
+        Create tu cuenta y recibe un descuento del 30%.
       </LocalizedClientLink>
     </div>
   )

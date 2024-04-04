@@ -25,7 +25,7 @@ export default function Outlet({
       <section className="flex flex-col px-2 gap-5">
         <div>
           <p className="text-4xl">OUTLET</p>
-          <p className="text-base">You must have today</p>
+          <p className="text-base">Lo debes tener hoy</p>
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex gap-5">
@@ -40,7 +40,7 @@ export default function Outlet({
                   : "bg-principal-0 text-principal-950 "
               } rounded-none border border-principal-950 p-2.5`}
             >
-              NEWS
+              NUEVO
             </Button>
             <Button
               onClick={() => {
@@ -53,7 +53,7 @@ export default function Outlet({
                   : "bg-principal-0 text-principal-950"
               } rounded-none border border-principal-950  p-2.5`}
             >
-              COLECTION
+              COLECCION
             </Button>
             <Button
               onClick={() => {
@@ -66,7 +66,7 @@ export default function Outlet({
                   : "bg-principal-0 text-principal-950"
               } rounded-none border border-principal-950  p-2.5`}
             >
-              EXCLUCIVE MEMBERS
+              MIEMBROS EXCLUSIVOS
             </Button>
           </div>
         </div>
