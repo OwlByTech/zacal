@@ -41,10 +41,10 @@ export default function CategoryView({
         </div>
       </section>
 
-      <section className=" flex w-full flex-row justify-between overflow-scroll">
-        <ul className="flex flex-grow  flex-row gap-x-6 gap-y-24 small:gap-y-36 ">
+      <section className="flex w-full flex-row justify-between">
+        <ul className="flex flex-grow flex-row justify-center gap-x-7 gap-y-24 small:gap-y-36">
           {products[index] && (
-            <li key={products[index]?.id} className="small:w-1/3 ">
+            <li key={products[index]?.id} className="small:w-1/5 ">
               <ProductPreviewClient
                 productPreview={products[index]}
                 region={region}
@@ -55,7 +55,7 @@ export default function CategoryView({
           )}
 
           {products[index + 1] && (
-            <li key={products[index + 1]?.id} className="small:w-1/3 ">
+            <li key={products[index + 1]?.id} className="small:w-1/5 ">
               <ProductPreviewClient
                 productPreview={products[index + 1]}
                 region={region}
@@ -65,7 +65,7 @@ export default function CategoryView({
             </li>
           )}
           {products[index + 2] && (
-            <li key={products[index + 2]?.id} className="small:w-1/3 ">
+            <li key={products[index + 2]?.id} className="small:w-1/5 ">
               <ProductPreviewClient
                 productPreview={products[index + 2]}
                 region={region}
