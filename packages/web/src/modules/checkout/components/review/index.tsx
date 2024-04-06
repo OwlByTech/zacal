@@ -32,7 +32,7 @@ const Review = ({
             }
           )}
         >
-          Review
+          Revision
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (
@@ -43,7 +43,7 @@ const Review = ({
                 Al hacer clic en el botón Realizar pedido, confirmas que has
                 leído, comprendido y aceptado nuestros Términos de Uso, Términos
                 de Venta y Política de Devoluciones, y reconoces que has leído
-                la Política de Privacidad de Medusa Store.
+                la Política de Privacidad de Zacal Store.
               </Text>
             </div>
           </div>
