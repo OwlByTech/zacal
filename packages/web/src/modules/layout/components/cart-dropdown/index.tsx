@@ -87,9 +87,10 @@ const CartDropdown = ({
               version="1.1"
               id="Capa_1"
               xmlns="http://www.w3.org/2000/svg"
-              width="32px"
-              height="32px"
+              width="25px"
+              height="25px"
               viewBox="0 0 902.86 902.86"
+              className="mt-1"
             >
               <g>
                 <g>
