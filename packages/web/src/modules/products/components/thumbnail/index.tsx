@@ -33,7 +33,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
           "w-[440px]": size === "large",
-          "w-full h-[400px] ": size === "full",
+          "w-full h-[300px] ": size === "full",
         }
       )}
     >

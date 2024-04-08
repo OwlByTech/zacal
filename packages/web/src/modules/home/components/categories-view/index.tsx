@@ -58,7 +58,11 @@ export default function CategoryView({
           className={`category flex flex-row w-full justify-start items-center gap-x-6 px-2 pb-6 overflow-x-scroll`}
         >
           {products.map((product, index) => (
-            <li key={product.id} id={`${identificator}image${index + 1}`}>
+            <li
+              key={product.id}
+              id={`${identificator}image${index + 1}`}
+              className="small:w-1/4"
+            >
               <ProductPreviewClient
                 productPreview={product}
                 region={region}
