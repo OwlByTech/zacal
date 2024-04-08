@@ -51,8 +51,8 @@ export default async function BestDealsCategory({ region }: Props) {
         products={products}
         identificator="best"
       >
-        <p className="text-4xl">MEJORES ZAPATOS</p>
-        <p className="text-base">Lo debes tener hoy</p>
+        <p className="text-xl md:text-4xl">MEJORES ZAPATOS</p>
+        <p className="text-sm md:text-base">Lo debes tener hoy</p>
       </CategoryView>
     </>
   )

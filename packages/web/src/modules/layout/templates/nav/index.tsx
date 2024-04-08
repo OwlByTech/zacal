@@ -8,10 +8,10 @@ export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <header className="sticky top-0  h-20 left-0 z-20 mx-auto border-b duration-200 w-screen bg-white items-center justify-between flex flex-row  px-20 shadow-md  gap-2 border-r">
+    <header className="flex flex-row justify-between sticky items-center h-20 top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
       <img src="/logo.png" alt="" width={75} height={75} />
 
-      <div className="flex flex-row gap-5">
+      <div className="flex flex-row gap-1 sm:gap-5">
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black text-md p-2"
           href="/"

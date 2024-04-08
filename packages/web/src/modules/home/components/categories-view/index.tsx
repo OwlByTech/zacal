@@ -35,7 +35,7 @@ export default function CategoryView({
   }
 
   return (
-    <div className="flex flex-col gap-8 mx-20">
+    <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-12 lg:mx-20">
       <section className="flex flex-row justify-between">
         <div>{children}</div>
         <div className=" hidden small:relative small:flex flex-row gap-4 items-end">
