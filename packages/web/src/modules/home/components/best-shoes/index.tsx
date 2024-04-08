@@ -18,7 +18,10 @@ export default function BestShoes() {
       {posts.map((post) => (
         <>
           {post.photo && post.isPrincipal && (
-            <section className="flex flex-row w-1/3">
+            <LocalizedClientLink
+              href={`/categories/${post.handle}`}
+              className="flex flex-row w-1/3"
+            >
               <div
                 style={{
                   backgroundSize: "100% 100%",
@@ -26,14 +29,11 @@ export default function BestShoes() {
                 }}
                 className="w-full h-[600px]"
               >
-                <LocalizedClientLink
-                  className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute"
-                  href={`/categories/${post.handle}`}
-                >
+                <span className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute">
                   {post.name}
-                </LocalizedClientLink>
+                </span>
               </div>
-            </section>
+            </LocalizedClientLink>
           )}
         </>
       ))}

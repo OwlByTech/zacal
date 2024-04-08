@@ -41,16 +41,11 @@ export default async function BestDealsCategory({ region }: Props) {
   return (
     <>
       <section className=" flex w-full flex-row justify-between overflow-scroll">
-        {"asflsd "}
-        <ul className="flex flex-grow  flex-row gap-x-6 gap-y-24 small:gap-y-36 ">
-          <li key={products[index]?.id} className="small:w-1/3 ">
-            <ProductPreview
-              productPreview={products[index]}
-              region={region}
-              isFeatured
-            />
-          </li>
-        </ul>
+        <ProductPreview
+          productPreview={products[index]}
+          region={region}
+          isFeatured
+        />
       </section>
     </>
   )

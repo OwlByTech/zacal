@@ -21,7 +21,12 @@ export default function Outlet({
   const [button, setButton] = useState(0)
   const [products, setProducts] = useState(new_products)
   return (
-    <CategoryView products={products} header={header} region={region}>
+    <CategoryView
+      products={products}
+      header={header}
+      region={region}
+      identificator={`outlet${button}`}
+    >
       <section className="flex flex-col px-2 gap-5">
         <div>
           <p className="text-4xl">OUTLET</p>
@@ -34,7 +39,7 @@ export default function Outlet({
                 setButton(0)
                 setProducts(new_products)
               }}
-              className={`hover:bg-principal-950 hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
                 button === 0
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950 "
@@ -47,7 +52,7 @@ export default function Outlet({
                 setButton(1)
                 setProducts(colection_products)
               }}
-              className={`hover:bg-principal-950 hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
                 button === 1
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950"
@@ -60,7 +65,7 @@ export default function Outlet({
                 setButton(2)
                 setProducts(exclusive_products)
               }}
-              className={`hover:bg-principal-950 hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
                 button === 2
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950"

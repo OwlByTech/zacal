@@ -30,12 +30,12 @@ export default function BestDeals({
         <div className="flex flex-row gap-4">
           <Arrow
             onClick={() => {
-              setIndex(index - 3)
+              setIndex(index - 4)
             }}
           />
           <Arrow
             onClick={() => {
-              setIndex(index + 3)
+              setIndex(index + 4)
             }}
             direction
           />
@@ -69,6 +69,16 @@ export default function BestDeals({
             <li key={products[index + 2]?.id} className="small:w-1/3 ">
               <ProductPreviewClient
                 productPreview={products[index + 2]}
+                region={region}
+                isFeatured
+                header={header}
+              />
+            </li>
+          )}
+          {products[index + 3] && (
+            <li key={products[index + 3]?.id} className="small:w-1/3 ">
+              <ProductPreviewClient
+                productPreview={products[index + 3]}
                 region={region}
                 isFeatured
                 header={header}
