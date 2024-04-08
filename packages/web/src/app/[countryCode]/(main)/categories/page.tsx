@@ -9,7 +9,6 @@ export default function Page() {
 
   useEffect(() => {
     directus.request(readItems("product_category")).then((result) => {
-      console.log(result)
       setPosts(result)
     })
   }, [])

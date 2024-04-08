@@ -27,9 +27,8 @@ export default async function Addresses() {
       <div className="mb-8 flex flex-col gap-y-4">
         <h1 className="text-2xl-semi">Direcciónes de envío</h1>
         <p className="text-base-regular">
-          Ver y actualizar tus direcciónes de envío, puedes agregar tantas como
-          desees. Guardar tus direcciónes las hará disponibles durante el
-          proceso de pago.
+          Para ver y actualizar tus direcciones de envío, puedes agregar las que
+          quieras. Guardarlas te facilitará el proceso de pago más adelante.
         </p>
       </div>
       <AddressBook customer={customer} region={region} />
