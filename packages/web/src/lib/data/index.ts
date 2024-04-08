@@ -52,7 +52,6 @@ export const getMedusaHeaders = (tags: string[] = []) => {
 // Cart actions
 export async function createCart(data = {}) {
   const headers = getMedusaHeaders(["cart"])
-
   return medusaClient.carts
     .create(data, headers)
     .then(({ cart }) => cart)
