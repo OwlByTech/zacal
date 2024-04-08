@@ -48,14 +48,10 @@ const Item: React.FC<AccordionItemProps> = ({
     /* @ts-expect-error */
     <AccordionPrimitive.Item
       {...props}
-      className={clx(
-        "border-grey-20 group border-t last:mb-0 last:border-b",
-        "py-3",
-        className
-      )}
+      className={clx("group last:mb-0 ", "py-3", className)}
     >
       {/* @ts-expect-error */}
-      <AccordionPrimitive.Header className="px-1">
+      <AccordionPrimitive.Header className="px-1 border-b">
         <div className="flex flex-col">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-4">

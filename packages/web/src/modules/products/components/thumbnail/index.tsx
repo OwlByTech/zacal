@@ -25,15 +25,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   return (
     <Container
       className={clx(
-        "relative w-full rounded-none border  border-black overflow-hidden bg-white ",
+        "relative w-full rounded-none border  border-black overflow-hidden bg-white    ",
         {
-          "aspect-[11/14]": isFeatured,
+          "aspect-[8/10]": isFeatured,
           "aspect-[9/16]": !isFeatured && size !== "square",
           "aspect-[1/1]": size === "square",
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
           "w-[440px]": size === "large",
-          "w-full": size === "full",
+          "w-full h-[400px] ": size === "full",
         }
       )}
     >
@@ -53,7 +53,7 @@ const ImageOrPlaceholder = ({
         alt="Thumbnail"
         className=" h-full w-full border-none absolute inset-0 object-fill"
         draggable={false}
-        sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+        sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
       />
     </div>
   ) : (

@@ -35,8 +35,7 @@ export default function ProductPrice({
           "text-ui-fg-interactive": selectedPrice.price_type === "sale",
         })}
       >
-        {!variant && "From "}
-        {selectedPrice.calculated_price}
+        {selectedPrice.calculated_price.split(" ", 2)[1]}
       </span>
       {selectedPrice.price_type === "sale" && (
         <>
