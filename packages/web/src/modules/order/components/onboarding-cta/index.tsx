@@ -19,7 +19,7 @@ const OnboardingCta = ({ orderId }: { orderId: string }) => {
           size="xlarge"
           onClick={() => resetOnboardingState(orderId)}
         >
-          Comletar la configuracion del administrador
+          Completar la configuración del administrador
         </Button>
       </div>
     </Container>

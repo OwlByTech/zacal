@@ -28,7 +28,7 @@ export default async function Profile() {
         <h1 className="text-2xl-semi">Profile</h1>
         <p className="text-base-regular">
           Visualiza y actualiza tu información de perfil, incluyendo tu nombre,
-          correo electrónico y número de teléfono. También puedes actualizar tu
+          correo electrónico y número de teléfono. También puedes actualizar tú
           dirección de facturación o cambiar tu contraseña.
         </p>
       </div>

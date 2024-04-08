@@ -69,7 +69,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 key={gc.id}
               >
                 <Text className="flex gap-x-1 items-baseline">
-                  <span>Codigo: </span>
+                  <span>Código: </span>
                   <span className="truncate">{gc.code}</span>
                 </Text>
                 <Text className="font-semibold">
@@ -99,7 +99,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               <Heading className="txt-medium">Descuento Aplicado</Heading>
               <div className="flex items-center justify-between w-full max-w-full">
                 <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
-                  <span>Codigo:</span>
+                  <span>Código:</span>
                   <span className="truncate">{discounts[0].code}</span>
                   <span className="min-w-fit">({appliedDiscount})</span>
                 </Text>
@@ -109,7 +109,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 >
                   <Trash size={14} />
                   <span className="sr-only">
-                    Eliminar codigo de descuento del pedido
+                    Eliminar Código de descuento del pedido
                   </span>
                 </button>
               </div>

@@ -17,7 +17,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
         <div className="text-xl-semi flex justify-between items-center mb-4">
           <span>¡Hola! {customer?.first_name}</span>
           <span className="text-small-regular text-ui-fg-base">
-            Iniciar Sesion{" "}
+            Iniciar Sesión{" "}
             <span className="font-semibold">{customer?.email}</span>
           </span>
         </div>
@@ -51,7 +51,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
 
             <div className="flex flex-col gap-y-4">
               <div className="flex items-center gap-x-2">
-                <h3 className="text-large-semi">Ordenes recientes</h3>
+                <h3 className="text-large-semi">Órdenes recientes</h3>
               </div>
               <ul className="flex flex-col gap-y-4">
                 {orders && orders.length > 0 ? (
@@ -67,7 +67,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                                 Fecha de pedido
                               </span>
                               <span className="font-semibold">
-                                Numero de orden
+                                Número de orden
                               </span>
                               <span className="font-semibold">Monto total</span>
                               <span>
@@ -94,7 +94,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                     )
                   })
                 ) : (
-                  <span>No hay ordenes recientes</span>
+                  <span>No hay órdenes recientes</span>
                 )}
               </ul>
             </div>

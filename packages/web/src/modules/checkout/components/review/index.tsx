@@ -32,7 +32,7 @@ const Review = ({
             }
           )}
         >
-          Revision
+          Revisión
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (

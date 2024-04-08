@@ -46,7 +46,7 @@ const Register = ({ setCurrentView }: Props) => {
             type="email"
             autoComplete="email"
           />
-          <Input label="Telefono" name="phone" type="tel" autoComplete="tel" />
+          <Input label="Teléfono" name="phone" type="tel" autoComplete="tel" />
           <Input
             label="Contraseña"
             name="password"
@@ -57,19 +57,19 @@ const Register = ({ setCurrentView }: Props) => {
         </div>
         <ErrorMessage error={message} />
         <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          Al crear una cuenta, aceptas los terminos y condiciones de Zacal.{" "}
+          Al crear una cuenta, aceptas los términos y condiciones de Zacal.{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
             className="underline"
           >
-            Politica de Privacidad
+            Política de Privacidad
           </LocalizedClientLink>{" "}
           y{" "}
           <LocalizedClientLink
             href="/content/terms-of-use"
             className="underline"
           >
-            Terminos de uso
+            Términos de uso
           </LocalizedClientLink>
           .
         </span>
@@ -83,7 +83,7 @@ const Register = ({ setCurrentView }: Props) => {
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline hover:text-principal-500"
         >
-          Iniciar sesion
+          Iniciar Sesión
         </button>
         .
       </span>

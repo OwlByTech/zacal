@@ -25,10 +25,10 @@ export default async function Addresses() {
   return (
     <div className="w-full">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Direcciones de envio</h1>
+        <h1 className="text-2xl-semi">Direcciónes de envío</h1>
         <p className="text-base-regular">
-          Ver y actualizar tus direcciones de envío, puedes agregar tantas como
-          desees. Guardar tus direcciones las hará disponibles durante el
+          Ver y actualizar tus direcciónes de envío, puedes agregar tantas como
+          desees. Guardar tus direcciónes las hará disponibles durante el
           proceso de pago.
         </p>
       </div>

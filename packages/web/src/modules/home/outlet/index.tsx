@@ -58,7 +58,7 @@ export default function Outlet({
                   : "bg-principal-0 text-principal-950"
               } rounded-none border border-principal-950  p-2.5`}
             >
-              COLECCION
+              COLECCIÓN
             </Button>
             <Button
               onClick={() => {

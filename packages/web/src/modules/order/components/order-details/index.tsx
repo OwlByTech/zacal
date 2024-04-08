@@ -26,7 +26,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         Fecha de pedido: {new Date(order.created_at).toDateString()}
       </Text>
       <Text className="mt-2 text-ui-fg-interactive">
-        Numero de pedido: {order.display_id}
+        Número de pedido: {order.display_id}
       </Text>
 
       <div className="flex items-center text-compact-small gap-x-4 mt-4">

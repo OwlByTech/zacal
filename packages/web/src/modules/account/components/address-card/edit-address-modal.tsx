@@ -143,7 +143,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.company || undefined}
               />
               <Input
-                label="Direccion"
+                label="Dirección"
                 name="address_1"
                 required
                 autoComplete="address-line1"
@@ -157,7 +157,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               />
               <div className="grid grid-cols-[144px_1fr] gap-x-2">
                 <Input
-                  label="codigo postal"
+                  label="Código postal"
                   name="postal_code"
                   required
                   autoComplete="postal-code"
@@ -178,14 +178,14 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.province || undefined}
               />
               <CountrySelect
-                name="codigo pais"
+                name="Código pais"
                 region={region}
                 required
                 autoComplete="country"
                 defaultValue={address.country_code || undefined}
               />
               <Input
-                label="Telefono"
+                label="Teléfono"
                 name="phone"
                 autoComplete="phone"
                 defaultValue={address.phone || undefined}

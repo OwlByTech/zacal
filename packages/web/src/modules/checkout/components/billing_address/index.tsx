@@ -68,7 +68,7 @@ const BillingAddress = ({
           required
         />
         <Input
-          label="Direccion"
+          label="Dirección"
           name="billing_address.address_1"
           autoComplete="address-line1"
           value={formData["billing_address.address_1"]}
@@ -83,7 +83,7 @@ const BillingAddress = ({
           autoComplete="organization"
         />
         <Input
-          label="Codigo postal"
+          label="Código postal"
           name="billing_address.postal_code"
           autoComplete="postal-code"
           value={formData["billing_address.postal_code"]}
@@ -114,7 +114,7 @@ const BillingAddress = ({
           onChange={handleChange}
         />
         <Input
-          label="Telefono"
+          label="Teléfono"
           name="billing_address.phone"
           autoComplete="tel"
           value={formData["billing_address.phone"]}

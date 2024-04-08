@@ -102,7 +102,7 @@ const ShippingAddress = ({
           required
         />
         <Input
-          label="Direccion"
+          label="Dirección"
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
@@ -117,7 +117,7 @@ const ShippingAddress = ({
           autoComplete="organization"
         />
         <Input
-          label="Codigo Postal"
+          label="Código Postal"
           name="shipping_address.postal_code"
           autoComplete="postal-code"
           value={formData["shipping_address.postal_code"]}
@@ -168,7 +168,7 @@ const ShippingAddress = ({
           required
         />
         <Input
-          label="Telefono"
+          label="Teléfono"
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}

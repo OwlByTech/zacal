@@ -66,7 +66,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Direccion</span>
+                        <span>Dirección</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -92,7 +92,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Cerrar Sesion</span>
+                      <span>Cerrar Sesión</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -105,7 +105,7 @@ const AccountNav = ({
       <div className="hidden small:block">
         <div>
           <div className="pb-4">
-            <h3 className="text-base-semi">Account</h3>
+            <h3 className="text-base-semi">Cuenta</h3>
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
@@ -121,7 +121,7 @@ const AccountNav = ({
               </li>
               <li>
                 <AccountNavLink href="/account/addresses" route={route!}>
-                  Direccion
+                  Dirección
                 </AccountNavLink>
               </li>
               <li>
@@ -131,7 +131,7 @@ const AccountNav = ({
               </li>
               <li className="text-grey-700">
                 <button type="button" onClick={handleLogout}>
-                  Cerrar Sesion
+                  Cerrar Sesión
                 </button>
               </li>
             </ul>
