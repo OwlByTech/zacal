@@ -29,8 +29,8 @@ export default function Outlet({
     >
       <section className="flex flex-col px-2 gap-5">
         <div>
-          <p className="text-4xl">OUTLET</p>
-          <p className="text-base">Lo debes tener hoy</p>
+          <p className="text-2xl sm:text-4xl">OUTLET</p>
+          <p className="text-sm sm:text-base">Lo debes tener hoy</p>
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex gap-5">
@@ -39,7 +39,7 @@ export default function Outlet({
                 setButton(0)
                 setProducts(new_products)
               }}
-              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
+              className={` hover:bg-principal-950 font-bold text-[10px] sm:text-[16px] hover:text-principal-0 ${
                 button === 0
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950 "
@@ -52,7 +52,7 @@ export default function Outlet({
                 setButton(1)
                 setProducts(colection_products)
               }}
-              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[10px] sm:text-[16px] hover:text-principal-0 ${
                 button === 1
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950"
@@ -65,7 +65,7 @@ export default function Outlet({
                 setButton(2)
                 setProducts(exclusive_products)
               }}
-              className={`hover:bg-principal-950 font-bold text-[16px] hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[10px] sm:text-[16px] hover:text-principal-0 ${
                 button === 2
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950"

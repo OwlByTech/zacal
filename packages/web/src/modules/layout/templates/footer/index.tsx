@@ -12,13 +12,13 @@ export default async function Footer({ customer }: { customer: any }) {
   return (
     <footer className="flex flex-col border-t border-ui-border-base w-full bg-black h-[400px]">
       {!customer && (
-        <div className="flex flex-row justify-between p-10">
-          <p className="text-white font-bold text-2xl uppercase">
+        <div className="flex flex-row justify-between p-5 sm:p-10">
+          <p className="text-white font-bold text-m sm:text-2xl uppercase">
             ¿Qué estás esperando?
           </p>
 
           <LocalizedClientLink
-            className="bg-[#F8CB56] text-black p-2"
+            className="bg-principal-400 text-black p-2 text-sm sm:text-xl"
             href="/account"
           >
             CREAR CUENTA
