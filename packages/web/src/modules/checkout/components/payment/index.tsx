@@ -112,7 +112,7 @@ const Payment = ({
             }
           )}
         >
-          Payment
+          Pago
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
@@ -121,7 +121,7 @@ const Payment = ({
               onClick={handleEdit}
               className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
             >
-              Edit
+              Editar
             </button>
           </Text>
         )}
@@ -154,7 +154,7 @@ const Payment = ({
             {isStripe && stripeReady && (
               <div className="mt-5 transition-all duration-150 ease-in-out">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Enter your card details:
+                  Ingesa los detalles de tu targeta:
                 </Text>
 
                 <CardElement
@@ -175,12 +175,12 @@ const Payment = ({
 
             <Button
               size="large"
-              className="mt-6"
+              className="mt-6 hover:bg-principal-400 hover:text-principal-950 rounded-none"
               onClick={handleSubmit}
               isLoading={isLoading}
               disabled={(isStripe && !cardComplete) || !cart.payment_session}
             >
-              Continue to review
+              Continuar a revisar
             </Button>
           </div>
         ) : (
@@ -194,7 +194,7 @@ const Payment = ({
             <div className="flex items-start gap-x-1 w-full">
               <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment method
+                  Método de pago
                 </Text>
                 <Text className="txt-medium text-ui-fg-subtle">
                   {paymentInfoMap[cart.payment_session.provider_id]?.title ||
@@ -210,7 +210,7 @@ const Payment = ({
               </div>
               <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment details
+                  Detalle de pago
                 </Text>
                 <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
                   <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">

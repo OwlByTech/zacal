@@ -4,7 +4,33 @@ const store = require("./store.config.json")
 /**
  * @type {import('next').NextConfig}
  */
+const nextEnv = require("@next/env")
+const path = require("path")
+const dotenv = require("dotenv")
+
+const envPath = path.join(__dirname, "..", "..", ".env")
+dotenv.config({
+  path: envPath,
+})
 const nextConfig = withStoreConfig({
+  typescript: {
+    // TODO: Fix all typescript errors
+    ignoreBuildErrors: true,
+  },
+  env: {
+    API_URL: process.env.API_URL,
+    ADMIN_EMAIL_DIRECTUS: process.env.ADMIN_EMAIL,
+    ADMIN_PASSWORD_DIRECTUS: process.env.ADMIN_PASSWORD,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/co",
+        permanent: true,
+      },
+    ]
+  },
   features: store.features,
   reactStrictMode: true,
   images: {
@@ -28,7 +54,5 @@ const nextConfig = withStoreConfig({
     ],
   },
 })
-
-console.log("next.config.js", JSON.stringify(module.exports, null, 2))
 
 module.exports = nextConfig

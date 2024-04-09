@@ -2,7 +2,7 @@ import { Text, clx } from "@medusajs/ui"
 
 import { PriceType } from "../product-actions"
 
-export default async function PreviewPrice({ price }: { price: PriceType }) {
+export default function PreviewPrice({ price }: { price: PriceType }) {
   return (
     <>
       {price.price_type === "sale" && (
@@ -11,11 +11,12 @@ export default async function PreviewPrice({ price }: { price: PriceType }) {
         </Text>
       )}
       <Text
-        className={clx("text-ui-fg-muted", {
+        className={clx("text-black font-medium", {
           "text-ui-fg-interactive": price.price_type === "sale",
         })}
       >
-        {price.calculated_price}
+        {"$"}
+        {price.calculated_price.split("COP", 2)[1]}
       </Text>
     </>
   )

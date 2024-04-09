@@ -33,7 +33,7 @@ const emptyResponse = {
  * @param tags
  * @returns custom headers for Medusa API requests
  */
-const getMedusaHeaders = (tags: string[] = []) => {
+export const getMedusaHeaders = (tags: string[] = []) => {
   const headers = {
     next: {
       tags,
@@ -52,7 +52,6 @@ const getMedusaHeaders = (tags: string[] = []) => {
 // Cart actions
 export async function createCart(data = {}) {
   const headers = getMedusaHeaders(["cart"])
-
   return medusaClient.carts
     .create(data, headers)
     .then(({ cart }) => cart)
@@ -421,11 +420,13 @@ export const getProductsById = cache(async function ({
 export const retrievePricedProductById = cache(async function ({
   id,
   regionId,
+  header,
 }: {
   id: string
   regionId: string
+  header?: any
 }) {
-  const headers = getMedusaHeaders(["products"])
+  const headers = header ? header : getMedusaHeaders(["products"])
 
   return medusaClient.products
     .retrieve(`${id}?region_id=${regionId}`, headers)

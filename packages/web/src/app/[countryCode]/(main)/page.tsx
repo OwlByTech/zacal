@@ -2,13 +2,17 @@ import { Product } from "@medusajs/medusa"
 import { Metadata } from "next"
 
 import { getCollectionsList, getProductsList, getRegion } from "@lib/data"
-import FeaturedProducts from "@modules/home/components/featured-products"
-import Hero from "@modules/home/components/hero"
+import FeaturedProducts from "@modules/home/featured-products"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
+import AdShoesEver from "@modules/home/components/ad-shoes-ever"
+import BestShoes from "@modules/home/components/best-shoes"
+import Outlet from "@modules/home/outlet"
+import BestDealsCategory from "@modules/home/templates/best-deals"
+import OutletCategory from "@modules/home/templates/outlet"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Zacal",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }
@@ -68,7 +72,16 @@ export default async function Home({
 
   return (
     <>
-      <Hero />
+      <div className="flex flex-col gap-6 sm:gap-20">
+        <BestShoes />
+        <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
+          <BestDealsCategory region={region} />
+        </div>
+        <AdShoesEver />
+        <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
+          <OutletCategory region={region} />
+        </div>
+      </div>
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />

@@ -3,63 +3,58 @@ import { Suspense } from "react"
 import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
-import SideMenu from "@modules/layout/components/side-menu"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
-          </div>
+    <header className="flex flex-row justify-between py-1 sticky h-[70px] top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
+      <img
+        src="/logo.png"
+        alt=""
+        className="h-16 w-16 medium:h-16 medium:w-16"
+      />
+      <div className="flex flex-row items-end gap-1  sm:gap-5">
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black text-md p-2"
+          href="/"
+        >
+          INICIO
+        </LocalizedClientLink>
 
-          <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-            >
-              Medusa Store
-            </LocalizedClientLink>
-          </div>
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/categories"
+        >
+          CATEGORIAS
+        </LocalizedClientLink>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              {process.env.FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                >
-                  Search
-                </LocalizedClientLink>
-              )}
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-              >
-                Account
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
-      </header>
-    </div>
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/store"
+        >
+          TIENDA
+        </LocalizedClientLink>
+
+        <LocalizedClientLink
+          className="hover:bg-[#F8CB56] text-black p-2"
+          href="/account"
+        >
+          CUENTA
+        </LocalizedClientLink>
+      </div>
+      <Suspense
+        fallback={
+          <LocalizedClientLink
+            className="hover:text-ui-fg-base flex flex-row items-end gap-2"
+            href="/cart"
+          >
+            Cart (0)
+          </LocalizedClientLink>
+        }
+      >
+        <CartButton />
+      </Suspense>
+    </header>
   )
 }

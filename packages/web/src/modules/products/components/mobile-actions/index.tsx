@@ -90,7 +90,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                         selectedPrice.price_type === "sale",
                     })}
                   >
-                    {selectedPrice.calculated_price}
+                    {"$"}
+                    {selectedPrice.calculated_price.split("COP", 2)[1]}
                   </span>
                 </div>
               ) : (
