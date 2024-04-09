@@ -14,9 +14,9 @@ export default function PrincipalCategory() {
   }, [])
 
   return (
-    <div className="px-20 py-10 flex flex-col gap-10 ">
-      <p className="text-3xl text-center w-full">Categorias</p>
-      <div className=" gap-4 grid grid-cols-2 small:grid-cols-3 w-full">
+    <div className="px-10 md:px-20 sm:py-10 py-5 flex flex-col gap-10 ">
+      <p className="sm:text-3xl text-xl text-center w-full">Categorias</p>
+      <div className="gap-4 grid sm:grid-cols-2 small:grid-cols-3 w-full">
         {posts.map((post) => (
           <>
             {post.photo && (
@@ -27,7 +27,7 @@ export default function PrincipalCategory() {
                     backgroundImage: `url("${process.env.API_URL}/assets/${post.photo}")`,
                   }}
                   href={`/categories/${post.handle}`}
-                  className="w-full h-[400px]"
+                  className="w-full h-[300px] md:h-[400px]"
                 >
                   <span className="p-[10px] border border-principal-950 bg-principal-0 hover:bg-principal-400 absolute">
                     {post.name}
