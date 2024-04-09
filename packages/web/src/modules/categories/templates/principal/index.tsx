@@ -24,7 +24,7 @@ export default function PrincipalCategory() {
                 <LocalizedClientLink
                   style={{
                     backgroundSize: "100% 100%",
-                    backgroundImage: `url("${process.env.API_URL_DIRECTUS}/assets/${post.photo}")`,
+                    backgroundImage: `url("${process.env.API_URL}/assets/${post.photo}")`,
                   }}
                   href={`/categories/${post.handle}`}
                   className="w-full h-[400px]"

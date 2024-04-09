@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv"
 import { authentication, createDirectus, rest } from "@directus/sdk"
 
-const directus = createDirectus(process.env.API_URL_DIRECTUS)
+const directus = createDirectus(process.env.API_URL)
   .with(rest({ credentials: "include" }))
   .with(authentication("cookie", { credentials: "include" }))
 
