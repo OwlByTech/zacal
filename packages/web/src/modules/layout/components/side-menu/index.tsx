@@ -10,10 +10,10 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CountrySelect from "../country-select"
 
 const SideMenuItems = {
-  Home: "/",
-  Store: "/store",
-  Search: "/search",
-  Account: "/account",
+  Inicio: "/",
+  Categorias: "/categories",
+  Tienda: "/store",
+  Cuenta: "/account",
   Cart: "/cart",
 }
 
@@ -84,8 +84,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
-                        reserved.
+                        © {new Date().getFullYear()} Zacal reserved.
                       </Text>
                     </div>
                   </div>

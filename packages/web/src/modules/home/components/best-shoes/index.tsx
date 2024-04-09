@@ -14,13 +14,13 @@ export default function BestShoes() {
   }, [])
 
   return (
-    <div className="flex flex-row w-screen">
+    <div className="flex flex-col sm:flex-row md:w-screen">
       {posts.map((post) => (
         <>
           {post.photo && post.isPrincipal && (
             <LocalizedClientLink
               href={`/categories/${post.handle}`}
-              className="flex flex-row w-1/3"
+              className="flex flex-row w-full sm:w-1/3"
             >
               <div
                 style={{
