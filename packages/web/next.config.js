@@ -18,7 +18,7 @@ const nextConfig = withStoreConfig({
     ignoreBuildErrors: true,
   },
   env: {
-    API_URL_DIRECTUS: process.env.API_URL_DIRECTUS,
+    API_URL: process.env.API_URL,
     ADMIN_EMAIL_DIRECTUS: process.env.ADMIN_EMAIL,
     ADMIN_PASSWORD_DIRECTUS: process.env.ADMIN_PASSWORD,
   },
