@@ -18,7 +18,7 @@ const StoreTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div className="flex px-20 flex-col small:flex-row small:items-start py-6 content-container">
+    <div className="flex flex-col small:flex-row md:px-20 small:items-start py-6 content-container">
       <div className="w-full">
         <div className="mb-8 text-2xl-semi">
           <h1>Todos los productos</h1>

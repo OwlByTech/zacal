@@ -37,7 +37,7 @@ export default async function ProductPreview({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div className="border border-black p-3 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
+      <div className="w-[300px] md:w-auto border border-black p-3 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
         <Thumbnail
           thumbnail={productPreview.thumbnail}
           size="full"
