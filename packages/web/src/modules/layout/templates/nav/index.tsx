@@ -8,10 +8,13 @@ export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
-    <header className="flex flex-row justify-between sticky items-center h-20 top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
-      <img src="/logo.png" alt="" width={75} height={75} />
-
-      <div className="flex flex-row gap-1 sm:gap-5">
+    <header className="flex flex-row justify-between py-1 sticky h-[70px] top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
+      <img
+        src="/logo.png"
+        alt=""
+        className="h-16 w-16 medium:h-16 medium:w-16"
+      />
+      <div className="flex flex-row items-end gap-1  sm:gap-5">
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black text-md p-2"
           href="/"
@@ -43,7 +46,7 @@ export default async function Nav() {
       <Suspense
         fallback={
           <LocalizedClientLink
-            className="hover:text-ui-fg-base flex gap-2"
+            className="hover:text-ui-fg-base flex flex-row items-end gap-2"
             href="/cart"
           >
             Cart (0)
