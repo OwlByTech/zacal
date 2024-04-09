@@ -25,7 +25,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
     <>
       <div
-        className="flex flex-row overflow-x-auto sticky top-20 z-20 bg-white  border-b-2 border-gray-500 py-2 gap-x-4"
+        className="flex flex-row overflow-x-auto sticky top-[70px] z-20 bg-white  border-b-2 border-gray-500 py-2 gap-x-4"
         ref={containerRef}
       >
         {images.map((image, index) => {
