@@ -13,6 +13,7 @@ const SideMenuItems = {
   Inicio: "/",
   Categorias: "/categories",
   Tienda: "/store",
+  Cuenta: "/account",
 }
 
 const SideMenu = ({}) => {
