@@ -31,14 +31,6 @@ export default function SearchModal() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // disable scroll on body when modal is open
-  useEffect(() => {
-    document.body.style.overflow = "hidden"
-    return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [])
-
   // on escape key press, close modal
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
