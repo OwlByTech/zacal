@@ -5,6 +5,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import { divide } from "lodash"
+import SearchModal from "@modules/search/templates/search-modal"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
@@ -42,6 +43,7 @@ export default async function Nav() {
         </LocalizedClientLink>
       </div>
       <div className="flex flex-row items-center gap-1 sm:gap-5">
+        <SearchModal />
         <LocalizedClientLink className="text-black" href="/account">
           <svg
             xmlns="http://www.w3.org/2000/svg"
