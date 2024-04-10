@@ -65,10 +65,8 @@ services:
       zacal:
         ipv4_address: 10.9.0.5
   meili:
-    image: getmeili/meilisearch:v1.7
+    image: getmeili/meilisearch:latest
     build: ./packages/meili
-    volumes:
-      - ./packages/meili:/meili_data
     environment:
       MEILI_MASTER_KEY: '${MEILISEARCH_API_KEY}'
     ports:
