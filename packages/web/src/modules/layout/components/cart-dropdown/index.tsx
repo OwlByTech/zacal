@@ -79,7 +79,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base flex flex-row gap-2"
+            className="hover:text-ui-fg-base flex flex-row gap-2 justify-center items-center"
             href="/cart"
           >
             <svg
@@ -90,7 +90,7 @@ const CartDropdown = ({
               width="25px"
               height="25px"
               viewBox="0 0 902.86 902.86"
-              className="mt-1"
+              className="mt-1 w-5 h-5 sm:w-[28px] sm:h-[28px]"
             >
               <g>
                 <g>
@@ -110,7 +110,7 @@ const CartDropdown = ({
                 </g>
               </g>
             </svg>
-            <p className="text-xl">{` (${totalItems})`}</p>
+            <p className="sm:block hidden text-xl">{` (${totalItems})`}</p>
           </LocalizedClientLink>
         </Popover.Button>
         <Transition
@@ -160,7 +160,7 @@ const CartDropdown = ({
                                   </LocalizedClientLink>
                                 </h3>
                                 <LineItemOptions variant={item.variant} />
-                                <span>Quantity: {item.quantity}</span>
+                                <span>Cantidad: {item.quantity}</span>
                               </div>
                               <div className="flex justify-end">
                                 <LineItemPrice
@@ -172,7 +172,7 @@ const CartDropdown = ({
                             </div>
                           </div>
                           <DeleteButton id={item.id} className="mt-1">
-                            Remove
+                            Quitar
                           </DeleteButton>
                         </div>
                       </div>
@@ -197,7 +197,7 @@ const CartDropdown = ({
                       className="w-full h-12 font-medium text-xl   rounded-none  bg-[#F8CB56] hover:bg-[#F8CB56] text-black "
                       size="large"
                     >
-                      Go to cart
+                      Ir al Carrito
                     </Button>
                   </LocalizedClientLink>
                 </div>
@@ -208,7 +208,7 @@ const CartDropdown = ({
                   <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
                     <span>0</span>
                   </div>
-                  <span>Your shopping bag is empty.</span>
+                  <span>Tú Carrito esta vacío.</span>
                   <div>
                     <LocalizedClientLink href="/store">
                       <>
