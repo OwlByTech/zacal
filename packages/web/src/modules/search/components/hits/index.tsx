@@ -25,7 +25,7 @@ const Hits = ({
   return (
     <div
       className={clx(
-        "transition-[height,max-height,opacity] duration-300 ease-in-out sm:overflow-hidden w-full sm:w-[50vw] mb-1 p-px",
+        "transition-[height,max-height,opacity] duration-300 ease-in-out sm:overflow-hidden w-full  mb-1 p-px",
         className,
         {
           "max-h-full opacity-100": !!query,
@@ -33,7 +33,7 @@ const Hits = ({
         }
       )}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+      <div className="flex flex-col gap-4 mb-4">
         {hits.slice(0, 6).map((hit, index) => (
           <li
             key={index}
