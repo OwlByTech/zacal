@@ -3,12 +3,14 @@ import { Suspense } from "react"
 import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
+import SearchModal from "@modules/search/templates/search-modal"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
     <header className="flex flex-row justify-between py-1 sticky h-[70px] top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
+      <SearchModal />
       <img
         src="/logo.png"
         alt=""
