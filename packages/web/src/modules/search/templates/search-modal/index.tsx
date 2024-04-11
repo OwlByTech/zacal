@@ -72,7 +72,7 @@ export default function SearchModal() {
               >
                 <div className="fixed top-0 left-0 flex w-screen h-screen flex-row items-center justify-start z-[75] ">
                   <Popover.Panel className="flex flex-col sticky bg-principal-0 w-full h-full p-8 z-[75] top-0 text-sm text-ui-fg-on-color overflow-auto">
-                    <div className="flex flex-col border border-black p-6">
+                    <div className="flex flex-col p-6">
                       <div className="flex w-full justify-end " id="xmark">
                         <button
                           className="text-black font-extrabold text-xl"
