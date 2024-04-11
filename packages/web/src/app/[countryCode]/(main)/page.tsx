@@ -1,7 +1,12 @@
 import { Product } from "@medusajs/medusa"
 import { Metadata } from "next"
 
-import { getCollectionsList, getProductsList, getRegion } from "@lib/data"
+import {
+  getCollectionsList,
+  getCustomer,
+  getProductsList,
+  getRegion,
+} from "@lib/data"
 import FeaturedProducts from "@modules/home/featured-products"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
@@ -65,7 +70,7 @@ export default async function Home({
 }) {
   const collections = await getCollectionsWithProducts(countryCode)
   const region = await getRegion(countryCode)
-
+  const customer = await getCustomer()
   if (!collections || !region) {
     return null
   }
@@ -77,7 +82,7 @@ export default async function Home({
         <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
           <BestDealsCategory region={region} />
         </div>
-        <AdShoesEver />
+        <AdShoesEver customer={customer} />
         <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
           <OutletCategory region={region} />
         </div>

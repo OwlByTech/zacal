@@ -24,14 +24,14 @@ const Hit = ({ hit }: HitProps) => {
     <LocalizedClientLink href={`/products/${hit.handle}`}>
       <Container
         key={hit.id}
-        className="flex sm:flex-row gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover items-center sm:justify-center"
+        className="flex flex-col gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover items-center sm:justify-center border border-principal-950 rounded-none"
       >
         <Thumbnail
           thumbnail={hit.thumbnail}
           size="square"
           className="group h-4 w-4 sm:h-8 sm:w-8"
         />
-        <div className="flex flex-col w-4/5 justify-between group">
+        <div className="flex flex-col  justify-between group">
           <div className="flex flex-col">
             <Text className="text-ui-fg-subtle">{hit.title}</Text>
           </div>

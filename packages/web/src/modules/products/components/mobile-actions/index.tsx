@@ -99,12 +99,14 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               )}
             </div>
             <div className="grid grid-cols-2 w-full gap-x-4">
-              <Button onClick={open} variant="secondary" className="w-full">
+              <Button
+                onClick={open}
+                variant="secondary"
+                className="w-full rounded-none"
+              >
                 <div className="flex items-center justify-between w-full">
                   <span>
-                    {variant
-                      ? Object.values(options).join(" / ")
-                      : "Select Options"}
+                    {variant ? Object.values(options).join(" / ") : "Opciones"}
                   </span>
                   <ChevronDown />
                 </div>
@@ -112,14 +114,14 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <Button
                 onClick={handleAddToCart}
                 disabled={!inStock || !variant}
-                className="w-full"
+                className="w-full rounded-none bg-principal-400 text-principal-950 hover:text-principal-0"
                 isLoading={isAdding}
               >
                 {!variant
-                  ? "Select variant"
+                  ? "Seleccionar Variante"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                  ? "Sin Stock"
+                  : "Añadir al carrito"}
               </Button>
             </div>
           </div>

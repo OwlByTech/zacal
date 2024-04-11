@@ -70,9 +70,9 @@ export default function SearchModal() {
                 leaveFrom=" "
                 leaveTo="opacity-0"
               >
-                <div className="fixed top-0 left-0 flex w-screen h-screen flex-row  items-center justify-start z-[75] ">
-                  <Popover.Panel className="flex flex-col sticky w-full sm:pr-0 sm:w-1/4 2xl:w-1/4 sm:min-w-min h-screen z-[75] top-0 text-sm text-ui-fg-on-color ">
-                    <div className="flex flex-col h-full bg-white border-l border-black p-6">
+                <div className="fixed top-0 left-0 flex w-screen h-screen flex-row items-center justify-start z-[75] ">
+                  <Popover.Panel className="flex flex-col sticky bg-principal-0 w-full h-full p-8 z-[75] top-0 text-sm text-ui-fg-on-color overflow-auto">
+                    <div className="flex flex-col border border-black p-6">
                       <div className="flex w-full justify-end " id="xmark">
                         <button
                           className="text-black font-extrabold text-xl"
@@ -81,22 +81,18 @@ export default function SearchModal() {
                           X
                         </button>
                       </div>
-                      <div className="flex flex-col justify-start">
+                      <div className="flex flex-col justify-start gap-5">
                         <InstantSearch
                           indexName={SEARCH_INDEX_NAME}
                           searchClient={searchClient}
                         >
                           <MagnifyingGlassMini />
                           <SearchBox />
-                          <div className="flex-1 mt-6">
-                            <Hits hitComponent={Hit} />
-                          </div>
+                          <Hits hitComponent={Hit} />
                         </InstantSearch>
                       </div>
                     </div>
                   </Popover.Panel>
-
-                  <div className="flex-grow w-full h-full bg-gray-700 opacity-50 " />
                 </div>
               </Transition>
             </>

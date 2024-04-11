@@ -12,7 +12,7 @@ export default async function AdAccount() {
         className="text-white font-bold p-2 text-center"
         href="/account"
       >
-        Create tu cuenta y recibe un descuento del 30%.
+        Crea una cuenta y recibe un descuento del 30%.
       </LocalizedClientLink>
     </div>
   )

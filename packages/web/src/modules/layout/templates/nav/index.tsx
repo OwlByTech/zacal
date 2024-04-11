@@ -12,15 +12,17 @@ export default async function Nav() {
 
   return (
     <header className="flex flex-row justify-between items-center py-1 sticky h-[70px] top-0 left-0 z-20 px-3 mx-auto border-b duration-200 w-screen bg-white shadow-md border-r sm:gap-2 sm:px-20">
-      <div className="block md:hidden">
+      <div className="block md:hidden w-1/3">
         <SideMenu />
       </div>
-      <img
-        src="/logo.png"
-        alt=""
-        className="h-12 w-12 small:h-16 small:w-16 medium:h-16 medium:w-16"
-      />
-      <div className="hidden md:flex flex-row items-end gap-1  sm:gap-5">
+      <div className="w-1/3 md:w-auto flex flex-row justify-center items-center">
+        <img
+          src="/logo.png"
+          alt=""
+          className="h-12 w-12 small:h-16 small:w-16 medium:h-16 medium:w-16"
+        />
+      </div>
+      <div className="hidden md:flex flex-row justify-center gap-1 sm:gap-5">
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black text-md p-2"
           href="/"
@@ -42,7 +44,7 @@ export default async function Nav() {
           TIENDA
         </LocalizedClientLink>
       </div>
-      <div className="flex flex-row items-center gap-1 sm:gap-5">
+      <div className="flex flex-row items-center justify-end gap-1 sm:gap-5 w-1/3 md:w-auto">
         <SearchModal />
         <LocalizedClientLink className="text-black" href="/account">
           <svg
