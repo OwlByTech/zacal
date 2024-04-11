@@ -31,6 +31,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         {images.map((image, index) => {
           return (
             <button
+              key={image.id}
               onClick={() => {
                 scrollToSection(image.id)
               }}
