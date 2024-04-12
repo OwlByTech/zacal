@@ -33,7 +33,7 @@ const Hits = ({
         }
       )}
     >
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-5 mb-4">
+      <div className="flex flex-col gap-5 mb-4 p-2 sm:grid sm:grid-cols-2 overflow-scroll max-h-[400px]">
         {hits.slice(0, 6).map((hit, index) => (
           <li
             key={index}

@@ -8,9 +8,10 @@ import PlaceholderImage from "@modules/common/icons/placeholder-image"
 type ThumbnailProps = {
   thumbnail?: string | null
   images?: MedusaImage[] | null
-  size?: "small" | "medium" | "large" | "full" | "square"
+  size?: "small" | "medium" | "large" | "full" | "square" | "square-cart"
   isFeatured?: boolean
   className?: string
+  border?: boolean
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
@@ -19,16 +20,20 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   size = "small",
   isFeatured,
   className,
+  border,
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
 
   return (
     <Container
       className={clx(
-        "relative w-full rounded-none border  border-black overflow-hidden bg-white    ",
+        `relative w-full rounded-none ${
+          !border && "border  border-black"
+        } overflow-hidden bg-white`,
         {
           "aspect-[8/10]": isFeatured,
           "aspect-[9/16]": !isFeatured && size !== "square",
+          "w-full h-full": !isFeatured && size !== "square-cart",
           "aspect-[1/1]": size === "square",
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
@@ -51,7 +56,7 @@ const ImageOrPlaceholder = ({
       <img
         src={image}
         alt="Thumbnail"
-        className=" h-full w-full border-none absolute inset-0 object-fill"
+        className=" h-full w-full border-none absolute inset-0 object-cover"
         draggable={false}
         sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
       />
