@@ -4,7 +4,6 @@ import { readAssetRaw, readItems } from "@directus/sdk"
 
 export async function BestShoeImage({ post }: { post: any }) {
   const result = await directus.request(readAssetRaw(post.photo))
-  console.log(result)
   return (
     <>
       <LocalizedClientLink
