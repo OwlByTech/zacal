@@ -46,7 +46,13 @@ export default async function Nav() {
         </LocalizedClientLink>
       </div>
       <div className="flex flex-row items-center h-full justify-end  gap-4 md:gap-6 w-1/3 md:w-auto py-1">
-        <SearchModal />
+        <LocalizedClientLink
+          className="text-black flex flex-row h-full items-center "
+          href="/search"
+        >
+          <img src="/search.svg" className="w-5 h-5" />
+        </LocalizedClientLink>
+
         <Suspense
           fallback={
             <LocalizedClientLink
@@ -58,18 +64,18 @@ export default async function Nav() {
           }
         >
           <CartButton />
-          <LocalizedClientLink
-            className="text-black flex flex-row h-full items-center "
-            href="/account"
-          >
-            <img src="/user.svg" className="w-5 h-5" />
-            {customer && (
-              <span className="hidden md:block font-normal text-white p-1 text-xs bg-black rounded-xl">
-                {customer.first_name}
-              </span>
-            )}
-          </LocalizedClientLink>
         </Suspense>
+        <LocalizedClientLink
+          className="text-black flex flex-row h-full items-center "
+          href="/account"
+        >
+          <img src="/user.svg" className="w-5 h-5" />
+          {customer && (
+            <span className="hidden md:block font-normal text-white p-1 text-xs bg-black rounded-xl">
+              {customer.first_name}
+            </span>
+          )}
+        </LocalizedClientLink>
       </div>
     </header>
   )

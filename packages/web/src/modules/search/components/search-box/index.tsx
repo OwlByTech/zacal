@@ -53,7 +53,7 @@ const ControlledSearchBox = ({
             type="search"
             value={value}
             onChange={onChange}
-            className="text-black h-8 px-2 placeholder:text-gray-400 border border-black placeholder:transition-colors focus:outline-none flex-1  "
+            className="text-black h-8 px-2 placeholder:text-gray-400 border-none placeholder:transition-colors focus:outline-none flex-1  "
           />
         </div>
       </form>

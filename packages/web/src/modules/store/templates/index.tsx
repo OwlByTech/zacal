@@ -19,14 +19,14 @@ const StoreTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div className="flex px-20 flex-col small:flex-row small:items-start py-6 content-container">
+    <div className="flex small:px-20 flex-col small:flex-row small:items-start py-6 content-container">
       <div className="flex-1 basis-0 h-full flex items-center">
         <div className="h-full"></div>
       </div>
 
       <div className="w-full">
-        <div className="flex-1 mb-8 basis-0 h-full flex items-center justify-between">
-          <div className=" text-xl-semi">
+        <div className="flex-1 mb-4 small:mb-8 basis-0 h-full flex flex-row  items-center justify-between">
+          <div className=" text-lg font-bold small:text-xl-semi">
             <h1>Todos los productos</h1>
           </div>
           <FilterMenu />

@@ -9,6 +9,8 @@ yarn install
 if [ $ENV = "prod" ]; then
   echo "------------ PRODUCTION MODE ------------"
   echo "Not implemented yet."
+  yarn build
+  yarn start
 else
   echo "------------ DEVELOPMENT MODE ------------"
   yarn run dev
