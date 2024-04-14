@@ -21,6 +21,9 @@ const nextConfig = withStoreConfig({
     API_URL: process.env.API_URL,
     ADMIN_EMAIL_DIRECTUS: process.env.ADMIN_EMAIL,
     ADMIN_PASSWORD_DIRECTUS: process.env.ADMIN_PASSWORD,
+    NEXT_PUBLIC_SEARCH_ENDPOINT: process.env.NEXT_PUBLIC_SEARCH_ENDPOINT,
+    NEXT_PUBLIC_SEARCH_API_KEY: process.env.NEXT_PUBLIC_SEARCH_API_KEY,
+    NEXT_PUBLIC_INDEX_NAME: process.env.NEXT_PUBLIC_INDEX_NAME,
   },
   async redirects() {
     return [

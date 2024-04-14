@@ -12,7 +12,6 @@ type ImageGalleryProps = {
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   const containerRef = useRef(null)
-  const containerImage = useRef(null)
   const scrollToSection = (id) => {
     const image = document.getElementById(id)
     image?.scrollIntoView({
@@ -25,7 +24,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
     <>
       <div
-        className="flex flex-row overflow-x-auto sticky top-[70px] z-20 bg-white  border-b-2 border-gray-500 py-2 gap-x-4"
+        className="flex flex-row overflow-x-auto sticky top-[70px] z-10 bg-white  border-b-2 border-gray-500 py-2 gap-x-4"
         ref={containerRef}
       >
         {images.map((image, index) => {
@@ -56,7 +55,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             >
               <img
                 src={image.url}
-                className=" container-gallery h-full w-full object-fill absolute rounded-none inset-0 border border-black"
+                className=" container-gallery h-full w-full object-cover absolute rounded-none inset-0 border border-black"
                 alt={`Product image ${index + 1}`}
                 sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
               />

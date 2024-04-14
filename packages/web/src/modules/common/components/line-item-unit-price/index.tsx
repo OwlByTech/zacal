@@ -48,11 +48,9 @@ const LineItemUnitPrice = ({
           "text-ui-fg-interactive": hasReducedPrice,
         })}
       >
-        {formatAmount({
-          amount: reducedPrice || item.unit_price || 0,
-          region: region,
-          includeTaxes: false,
-        })}
+        {"$ " + reducedPrice.toLocaleString() ||
+          item.unit_price.toLocaleString() ||
+          0}
       </span>
     </div>
   )
