@@ -1,5 +1,5 @@
 import { LineItem, Region } from "@medusajs/medusa"
-import { Heading, Table } from "@medusajs/ui"
+import { Heading } from "@medusajs/ui"
 
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
@@ -11,37 +11,18 @@ type ItemsTemplateProps = {
 
 const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
-    <div>
-      <Table>
-        <Table.Header className="border-t-0">
-          <Table.Row className="text-ui-fg-subtle txt-medium-plus">
-            <Table.HeaderCell className="!pl-0 text-principal-950 text-xl">
-              Productos
-            </Table.HeaderCell>
-            <Table.HeaderCell></Table.HeaderCell>
-            <Table.HeaderCell>Cantidad</Table.HeaderCell>
-            <Table.HeaderCell className="hidden small:table-cell">
-              Precio
-            </Table.HeaderCell>
-            <Table.HeaderCell className="!pr-0 text-right">
-              Total
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {items && region
-            ? items
-                .sort((a, b) => {
-                  return a.created_at > b.created_at ? -1 : 1
-                })
-                .map((item) => {
-                  return <Item key={item.id} item={item} region={region} />
-                })
-            : Array.from(Array(5).keys()).map((i) => {
-                return <SkeletonLineItem key={i} />
-              })}
-        </Table.Body>
-      </Table>
+    <div className="flex flex-col gap-4">
+      {items && region
+        ? items
+            .sort((a, b) => {
+              return a.created_at > b.created_at ? -1 : 1
+            })
+            .map((item) => {
+              return <Item key={item.id} item={item} region={region} />
+            })
+        : Array.from(Array(5).keys()).map((i) => {
+            return <SkeletonLineItem key={i} />
+          })}
     </div>
   )
 }

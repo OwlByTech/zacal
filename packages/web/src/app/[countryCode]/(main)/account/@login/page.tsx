@@ -4,7 +4,7 @@ import LoginTemplate from "@modules/account/templates/login-template"
 
 export const metadata: Metadata = {
   title: "Inicio de sesión",
-  description: "Sign in to your Medusa Store account.",
+  description: "Ingresa a tu cuenta de la tienda Zacal.",
 }
 
 export default function Login() {

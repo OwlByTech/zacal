@@ -8,10 +8,16 @@ import { SEARCH_INDEX_NAME, searchClient } from "@lib/search-client"
 import Hit from "@modules/search/components/hit"
 import Hits from "@modules/search/components/hits"
 import SearchBox from "@modules/search/components/search-box"
-import { Fragment, useEffect, useRef } from "react"
-import { useToggleState } from "@medusajs/ui"
+import { useEffect, useRef } from "react"
+import { Region } from "@medusajs/medusa"
 
-export default function SearchModal() {
+export default function SearchModal({
+  header,
+  region,
+}: {
+  header: any
+  region: Region
+}) {
   const router = useRouter()
   const searchRef = useRef(null)
 
@@ -57,59 +63,36 @@ export default function SearchModal() {
   const toggleState = useToggleState()
 
   return (
-    <div className="h-full">
-      <div className="flex items-center h-full">
-        <Popover className="h-full flex">
-          {({ open, close }) => (
-            <>
-              <div className="relative flex h-full">
-                <Popover.Button className="relative h-full flex items-center p-2 border-2 border-black transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base text-sm">
-                  Buscar
-                </Popover.Button>
-              </div>
-
-              <Transition
-                show={open}
-                as={Fragment}
-                enter="transition ease-out duration-150"
-                enterFrom=""
-                enterTo=" "
-                leave="transition ease-in duration-150"
-                leaveFrom=" "
-                leaveTo="opacity-0"
+    <div className="relative z-[75]">
+      <div className="fixed inset-0 small:bg-opacity-75 backdrop-blur-md small:opacity-100 h-screen w-screen" />
+      <div
+        className="fixed bg-white small:bg-transparent inset-0 px-5 sm:p-0 w-screen h-screen"
+        ref={searchRef}
+      >
+        <div className="flex flex-col justify-center h-fit transform p-5 items-center text-left align-middle transition-all bg-white small:bg-transparent shadow-none">
+          <InstantSearch
+            indexName={SEARCH_INDEX_NAME}
+            searchClient={searchClient}
+          >
+            <div className="flex flex-col  small:h-fit  bg-white p-4  small:border small:border-black w-screen max-h-screen small:max-h-[90vh] small:w-[800px]">
+              <button
+                className="flex justify-end pb-4"
+                onClick={() => {
+                  router.back()
+                }}
               >
-                <div className="fixed top-0 left-0 flex w-screen h-screen flex-row  items-center justify-start z-[75] ">
-                  <Popover.Panel className="flex flex-col sticky w-full sm:pr-0 sm:w-2/5 2xl:w-1/4 sm:min-w-min h-screen z-[75] top-0 text-sm text-ui-fg-on-color ">
-                    <div className="flex flex-col h-full bg-white border-l border-black justify-between p-6">
-                      <div className="flex w-full justify-end " id="xmark">
-                        <button
-                          className="text-black font-extrabold text-xl"
-                          onClick={close}
-                        >
-                          X
-                        </button>
-                      </div>
-                      <div className="flex flex-col justify-start">
-                        <InstantSearch
-                          indexName={SEARCH_INDEX_NAME}
-                          searchClient={searchClient}
-                        >
-                          <MagnifyingGlassMini />
-                          <SearchBox />
-                          <div className="flex-1 mt-6">
-                            <Hits hitComponent={Hit} />
-                          </div>
-                        </InstantSearch>
-                      </div>
-                    </div>
-                  </Popover.Panel>
-
-                  <div className="flex-grow w-full h-full bg-gray-700 opacity-50 " />
-                </div>
-              </Transition>
-            </>
-          )}
-        </Popover>
+                <img src="/close.svg" className="h-4 w-4" />
+              </button>
+              <div className="w-full pl-2 flex items-center gap-x-1  border border-black text-ui-fg-on-color backdrop-blur-2xl rounded-none">
+                <img src="/search.svg" className="h-6 w-6" />
+                <SearchBox />
+              </div>
+              <div className="flex-1 mt-6 overflow-auto">
+                <Hits hitComponent={Hit} header={header} region={region} />
+              </div>
+            </div>
+          </InstantSearch>
+        </div>
       </div>
     </div>
   )

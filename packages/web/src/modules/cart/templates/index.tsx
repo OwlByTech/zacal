@@ -15,7 +15,7 @@ const CartTemplate = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   return (
-    <div className="py-12 px-20">
+    <div className="py-12 md:px-20">
       <div className="content-container">
         {cart?.items.length ? (
           <div className="flex flex-col">
