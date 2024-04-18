@@ -83,9 +83,6 @@ export default async function Home({
           <BestDealsCategory region={region} />
         </div>
         <AdShoesEver customer={customer} />
-        <div>
-          <OnSaleCategory region={region} />
-        </div>
         <div className="flex flex-col gap-5 sm:gap-20">
           <OutletCategory region={region} />
         </div>
