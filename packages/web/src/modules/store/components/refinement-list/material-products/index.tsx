@@ -1,14 +1,11 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 import FilterRadioGroup from "@modules/common/components/filter-radio-group"
-import { materialShoe } from "@lib/data/materials"
-
-export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
 type SortProductsProps = {
-  setQueryParams: (name: string, value: SortOptions) => void
+  setQueryParams: (name: string, value: string) => void
 }
 
 const materials_array: string[] = [
@@ -29,10 +26,6 @@ const materials_array: string[] = [
   "Seda",
 ]
 const MaterialProducts = ({ setQueryParams }: SortProductsProps) => {
-  const handleChange = (e: ChangeEvent<HTMLButtonElement>) => {
-    const newSortBy = e.target.value as SortOptions
-    setQueryParams("sortBy", newSortBy)
-  }
   const [materials, setMaterials] = useState([])
 
   const add = (material_new: string) => {
@@ -51,9 +44,12 @@ const MaterialProducts = ({ setQueryParams }: SortProductsProps) => {
       })
     )
   }
-  console.log(materials)
+  useEffect(() => {
+    setQueryParams("material", JSON.stringify(materials))
+  }, [materials])
+
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid  grid-cols-2 lg:grid-cols-3 py-4 px-2 gap-4">
       {materials_array.map((value: string, index) => (
         <button
           value={index}

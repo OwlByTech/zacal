@@ -1,5 +1,6 @@
 "use client"
 import { ReactNode, useState } from "react"
+import { ReactNode, useState } from "react"
 
 import Arrow from "@modules/common/components/arrow"
 import { Region } from "@medusajs/medusa"
@@ -29,6 +30,7 @@ export default function CategoryView({
 
   return (
     <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-14 lg:mx-14">
+    <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-14 lg:mx-14">
       <section className="flex flex-row justify-between">
         <div>{children}</div>
         <div className=" hidden small:relative small:flex flex-row gap-4 items-end">
@@ -54,7 +56,7 @@ export default function CategoryView({
             <li
               key={product.id}
               id={`${identificator}image${index + 1}`}
-              className="small:w-1/3 medium:w-1/4 large:w-1/5 xlarge:w-1/5 2xlarge:w-1/6"
+              className="small:w-1/6"
             >
               <ProductPreviewClient
                 productPreview={product}

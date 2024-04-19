@@ -31,41 +31,43 @@ export default function CategoryTemplate({
 
   return (
     <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
-      <RefinementList sortBy={sortBy || "created_at"} />
       <div className="w-full">
-        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
-          {parents &&
-            parents.map((parent) => (
-              <span key={parent.id} className="text-ui-fg-subtle">
-                <LocalizedClientLink
-                  className="mr-4 hover:text-black"
-                  href={`/categories/${parent.handle}`}
-                >
-                  {parent.name}
-                </LocalizedClientLink>
-                /
-              </span>
-            ))}
-          <h1>{category.name}</h1>
-        </div>
-        {category.description && (
-          <div className="mb-8 text-base-regular">
-            <p>{category.description}</p>
-          </div>
-        )}
-        {category.category_children && (
-          <div className="mb-8 text-base-large">
-            <ul className="grid grid-cols-1 gap-2">
-              {category.category_children?.map((c) => (
-                <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
-                </li>
+        <div className="w-full">
+          <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+            {parents &&
+              parents.map((parent) => (
+                <span key={parent.id} className="text-ui-fg-subtle">
+                  <LocalizedClientLink
+                    className="mr-4 hover:text-black"
+                    href={`/categories/${parent.handle}`}
+                  >
+                    {parent.name}
+                  </LocalizedClientLink>
+                  /
+                </span>
               ))}
-            </ul>
+            <h1>{category.name}</h1>
           </div>
-        )}
+          {category.description && (
+            <div className="mb-8 text-base-regular">
+              <p>{category.description}</p>
+            </div>
+          )}
+          {category.category_children && (
+            <div className="mb-8 text-base-large">
+              <ul className="grid grid-cols-1 gap-2">
+                {category.category_children?.map((c) => (
+                  <li key={c.id}>
+                    <InteractiveLink href={`/categories/${c.handle}`}>
+                      {c.name}
+                    </InteractiveLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <FilterMenu />
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
             sortBy={sortBy || "created_at"}

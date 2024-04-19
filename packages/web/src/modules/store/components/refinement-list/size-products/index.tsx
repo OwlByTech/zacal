@@ -1,22 +1,15 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 import FilterRadioGroup from "@modules/common/components/filter-radio-group"
-import { sizeShoe } from "@lib/data/sizes"
-
-export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
 type SortProductsProps = {
-  setQueryParams: (name: string, value: SortOptions) => void
+  setQueryParams: (name: string, value: string) => void
 }
 
 const sizes_array: string[] = ["35", "36", "38", "39", "40", "41", "42"]
 const SizeProducts = ({ setQueryParams }: SortProductsProps) => {
-  const handleChange = (e: ChangeEvent<HTMLButtonElement>) => {
-    const newSortBy = e.target.value as SortOptions
-    setQueryParams("sortBy", newSortBy)
-  }
   const [sizes, setsizes] = useState([])
 
   const add = (size_new: string) => {
@@ -35,6 +28,10 @@ const SizeProducts = ({ setQueryParams }: SortProductsProps) => {
       })
     )
   }
+  useEffect(() => {
+    setQueryParams("size", JSON.stringify(sizes))
+  }, [sizes])
+
   console.log(sizes)
   return (
     <div className="grid grid-cols-8 gap-4">

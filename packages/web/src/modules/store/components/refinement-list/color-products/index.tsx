@@ -1,21 +1,15 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 import FilterRadioGroup from "@modules/common/components/filter-radio-group"
 import { colorShoe } from "@lib/data/colors"
 
-export type SortOptions = "price_asc" | "price_desc" | "created_at"
-
 type SortProductsProps = {
-  setQueryParams: (name: string, value: SortOptions) => void
+  setQueryParams: (name: string, value: any) => void
 }
 
 const ColorProducts = ({ setQueryParams }: SortProductsProps) => {
-  const handleChange = (e: ChangeEvent<HTMLButtonElement>) => {
-    const newSortBy = e.target.value as SortOptions
-    setQueryParams("sortBy", newSortBy)
-  }
   const [colors, setColors] = useState([])
 
   const add = (color_new: string) => {
@@ -34,7 +28,10 @@ const ColorProducts = ({ setQueryParams }: SortProductsProps) => {
       })
     )
   }
-  console.log(colors)
+  useEffect(() => {
+    setQueryParams("color", JSON.stringify(colors))
+  }, [colors])
+
   return (
     <div className="grid grid-cols-8 gap-4">
       {Object.keys(colorShoe).map((key: string, index) => (
