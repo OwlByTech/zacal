@@ -33,6 +33,28 @@ const emptyResponse = {
  * @param tags
  * @returns custom headers for Medusa API requests
  */
+
+export async function getProductsListFilter(body: any) {
+  console.log("askf", body)
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products-custom/`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(body),
+    }
+  )
+  try {
+    const res = await data.json()
+    console.log(res)
+    return res
+  } catch (e) {
+    console.log(e)
+    return { products: [], count: 0 }
+  }
+}
 export const getMedusaHeaders = (tags: string[] = []) => {
   const headers = {
     next: {
