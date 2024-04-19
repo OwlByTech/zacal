@@ -4,8 +4,6 @@ import { getCustomer, listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
-import { divide } from "lodash"
-import SearchModal from "@modules/search/templates/search-modal"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
@@ -16,13 +14,16 @@ export default async function Nav() {
       <div className="block md:hidden w-1/3">
         <SideMenu />
       </div>
-      <div className="w-1/3 md:w-auto flex flex-row justify-center items-center">
+      <LocalizedClientLink
+        href="/"
+        className="w-1/3 md:w-auto flex flex-row justify-center items-center"
+      >
         <img
           src="/logo.png"
           alt=""
-          className="h-12 w-12  small:h-14 small:w-14"
+          className="h-12 w-14 small:h-12 small:w-14"
         />
-      </div>
+      </LocalizedClientLink>
       <div className="hidden md:flex  h-full flex-row justify-center items-center text-sm font-semibold gap-1 sm:gap-5">
         <LocalizedClientLink
           className="hover:bg-[#F8CB56] text-black p-2"
@@ -45,7 +46,7 @@ export default async function Nav() {
           TIENDA
         </LocalizedClientLink>
       </div>
-      <div className="flex flex-row items-center h-full justify-end  gap-4 md:gap-6 w-1/3 md:w-auto py-1">
+      <div className="flex flex-row items-center h-full justify-end  gap-4 md:gap-6 w-1/3 md:w-auto py-1 mx-5">
         <LocalizedClientLink
           className="text-black flex flex-row h-full items-center "
           href="/search"

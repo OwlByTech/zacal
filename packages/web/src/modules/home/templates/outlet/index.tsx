@@ -1,17 +1,9 @@
-import { Suspense, useState } from "react"
-
 import {
   getCategoryByHandle,
   getMedusaHeaders,
   getProductsListWithSort,
-  listRegions,
 } from "@lib/data"
-import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
-import { json } from "stream/consumers"
-import Arrow from "@modules/common/components/arrow"
-import BestDeals from "@modules/home/components/best-deals"
-import CategoryView from "@modules/home/components/categories-view"
 import Outlet from "@modules/home/outlet"
 
 type Props = {

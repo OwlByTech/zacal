@@ -12,7 +12,7 @@ export default async function Footer({ customer }: { customer: any }) {
   return (
     <footer className="flex flex-col border-t border-ui-border-base w-full bg-black h-[400px]">
       {!customer && (
-        <div className="flex flex-row justify-between p-5 sm:p-10">
+        <div className="flex flex-row justify-between p-5 sm:p-10 mx-7">
           <p className="text-white font-bold text-m sm:text-2xl uppercase">
             ¿Qué estás esperando?
           </p>

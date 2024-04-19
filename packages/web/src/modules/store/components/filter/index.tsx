@@ -36,12 +36,14 @@ const FilterMenu = () => {
                 <div className="fixed top-0 left-0 flex w-screen h-screen flex-row  items-end justify-end z-50 ">
                   <div className="hidden md:flex md:flex-grow w-full h-full bg-gray-700 opacity-50 " />
                   <Popover.Panel className="flex flex-col sticky w-screen sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-screen z-30 top-0 text-sm text-ui-fg-on-color ">
-                    <div className="flex flex-col h-full bg-white md:border-l md:border-black p-6">
+                    <div className="flex flex-col h-full bg-white ">
                       <div
-                        className="flex justify-between flex-row border-b-2 border-black pb-2 text-black"
+                        className="flex justify-between flex-row border-b p-4 text-black"
                         id="xmark"
                       >
-                        <p className="font-bold text-xl ">Filtros</p>
+                        <p className="font-semibold text-xl ">
+                          Filtrar y ordenar
+                        </p>
                         <button
                           className="text-black font-extrabold text-xl"
                           onClick={close}
