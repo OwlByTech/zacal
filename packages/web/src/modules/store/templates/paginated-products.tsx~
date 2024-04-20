@@ -54,6 +54,43 @@ export default async function PaginatedProducts({
   material?: string[]
   categories?: string[]
 }) {
+  const region = await getRegion(countryCode)
+  if (!region) {
+    return null
+  }
+
+  const queryParams: PaginatedProductsParams = {
+    limit: PRODUCT_LIMIT,
+    category: [],
+    color: [],
+    size: [],
+    material: [],
+  }
+  if (sortBy) {
+    queryParams["sort"] = sortBy
+  }
+  if (categoryId) {
+    queryParams["category"] = [categoryId]
+  }
+  if (categories) {
+    queryParams["category"] = categories
+  }
+  if (color) {
+    queryParams["color"] = color
+  }
+  if (material) {
+    queryParams["material"] = material
+  }
+  if (size) {
+    queryParams["size"] = size
+  }
+  if (minPrice && maxPrice) {
+    queryParams["minPrice"] = minPrice
+    queryParams["maxPrice"] = maxPrice
+  }
+
+  const { products, count } = await getProductsListFilter(queryParams)
+
   return (
     <>
       <Suspense fallback={<SkeletonProductGrid />}>

@@ -6,6 +6,7 @@ import FilterRadioGroup from "@modules/common/components/filter-radio-group"
 
 type SortProductsProps = {
   setQueryParams: (name: string, value: string) => void
+  material?: string[]
 }
 
 const materials_array: string[] = [
@@ -25,8 +26,8 @@ const materials_array: string[] = [
   "Lino",
   "Seda",
 ]
-const MaterialProducts = ({ setQueryParams }: SortProductsProps) => {
-  const [materials, setMaterials] = useState([])
+const MaterialProducts = ({ setQueryParams, material }: SortProductsProps) => {
+  const [materials, setMaterials] = useState(material ? material : [])
 
   const add = (material_new: string) => {
     if (materials.includes(material_new)) {
@@ -49,15 +50,15 @@ const MaterialProducts = ({ setQueryParams }: SortProductsProps) => {
   }, [materials])
 
   return (
-    <div className="grid  grid-cols-2 lg:grid-cols-3 py-4 px-2 gap-4">
+    <div className="grid  grid-cols-2  p-4 gap-1">
       {materials_array.map((value: string, index) => (
         <button
           value={index}
-          className={`  border font-medium text-xs border-black flex items-center ${
+          className={`  border font-medium font-raleway text-sm border-black flex items-center ${
             materials.includes(value)
               ? "bg-black text-white"
               : "bg-white text-black"
-          } justify-center p-1 `}
+          } justify-center p-2 `}
           onClick={() => {
             //@ts-ignore
             add(value)
