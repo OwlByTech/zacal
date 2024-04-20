@@ -55,9 +55,9 @@ export default function ProductPreviewClient({
           isFeatured={isFeatured}
         />
 
-        <div className="flex-col p-2 flex txt-compact-medium justify-between ">
-          <Text className="text-ui-fg-subtle ">{productPreview.title}</Text>
-          <div className="flex items-center gap-x-2">
+        <div className="flex-col p-2 flex mt-4 justify-between ">
+          <p className="text-md text-gray-600 ">{productPreview.title}</p>
+          <div className="flex items-center font-semibold gap-x-2">
             {priceCheapest && <PreviewPrice price={priceCheapest} />}
           </div>
         </div>
