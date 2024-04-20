@@ -54,7 +54,7 @@ export default function CategoryView({
             <li
               key={product.id}
               id={`${identificator}image${index + 1}`}
-              className="small:w-1/6"
+              className="small:w-1/3 medium:w-1/4 large:w-1/5 xlarge:w-1/5 2xlarge:w-1/6"
             >
               <ProductPreviewClient
                 productPreview={product}
