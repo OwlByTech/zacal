@@ -7,10 +7,23 @@ import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
 
 import RefinementList from "@modules/store/components/refinement-list"
+import { SortOptions } from "../refinement-list/sort-products"
 
-const FilterMenu = () => {
-  const toggleState = useToggleState()
-
+const FilterMenu = ({
+  sortBy,
+  colors,
+  size,
+  material,
+  maxPrice,
+  minPrice,
+}: {
+  sortBy: SortOptions
+  colors?: string[]
+  size?: string[]
+  material?: string[]
+  minPrice?: number
+  maxPrice?: number
+}) => {
   return (
     <div className="h-full">
       <div className="flex items-center h-full">
@@ -48,11 +61,24 @@ const FilterMenu = () => {
                           className="text-black font-extrabold text-xl"
                           onClick={close}
                         >
-                          X
+                          <img src="/close.svg" className="h-4 w-4" />
                         </button>
                       </div>
-                      <div>
-                        <RefinementList sortBy={"created_at"} />
+                      <div className="h-full max-h-full flex flex-col justify-between ">
+                        <RefinementList
+                          sortBy={sortBy}
+                          size={size}
+                          material={material}
+                          colors={colors}
+                          minPrice={minPrice}
+                          maxPrice={maxPrice}
+                        />
+                        <button
+                          className="bg-black font-bold rounded-none mb-4  mx-4 h-10 font-raleway text-lg"
+                          onClick={close}
+                        >
+                          Aplicar
+                        </button>
                       </div>
                     </div>
                   </Popover.Panel>

@@ -6,11 +6,12 @@ import FilterRadioGroup from "@modules/common/components/filter-radio-group"
 
 type SortProductsProps = {
   setQueryParams: (name: string, value: string) => void
+  size?: string[]
 }
 
 const sizes_array: string[] = ["35", "36", "38", "39", "40", "41", "42"]
-const SizeProducts = ({ setQueryParams }: SortProductsProps) => {
-  const [sizes, setsizes] = useState([])
+const SizeProducts = ({ setQueryParams, size }: SortProductsProps) => {
+  const [sizes, setsizes] = useState(size ? size : [])
 
   const add = (size_new: string) => {
     if (sizes.includes(size_new)) {
@@ -32,9 +33,8 @@ const SizeProducts = ({ setQueryParams }: SortProductsProps) => {
     setQueryParams("size", JSON.stringify(sizes))
   }, [sizes])
 
-  console.log(sizes)
   return (
-    <div className="grid grid-cols-8 gap-4">
+    <div className="grid grid-cols-6 gap-4 p-4">
       {sizes_array.map((value: string, index) => (
         <button
           value={index}

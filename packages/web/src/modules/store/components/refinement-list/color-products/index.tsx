@@ -7,10 +7,11 @@ import { colorShoe } from "@lib/data/colors"
 
 type SortProductsProps = {
   setQueryParams: (name: string, value: any) => void
+  colors_?: string[]
 }
 
-const ColorProducts = ({ setQueryParams }: SortProductsProps) => {
-  const [colors, setColors] = useState([])
+const ColorProducts = ({ setQueryParams, colors_ }: SortProductsProps) => {
+  const [colors, setColors] = useState(colors_ ? colors_ : [])
 
   const add = (color_new: string) => {
     if (colors.includes(color_new)) {
@@ -33,7 +34,7 @@ const ColorProducts = ({ setQueryParams }: SortProductsProps) => {
   }, [colors])
 
   return (
-    <div className="grid grid-cols-8 gap-4">
+    <div className="grid grid-cols-6 p-4 gap-4">
       {Object.keys(colorShoe).map((key: string, index) => (
         <button
           key={index}

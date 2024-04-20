@@ -13,7 +13,8 @@ const StoreTemplate = ({
   countryCode,
   color,
   categories,
-  priceRange,
+  minPrice,
+  maxPrice,
   material,
   size,
 }: {
@@ -23,7 +24,8 @@ const StoreTemplate = ({
   color?: any
   size?: any
   material?: any
-  priceRange?: any
+  maxPrice?: any
+  minPrice?: any
   categories?: any
 }) => {
   const pageNumber = page ? parseInt(page) : 1
@@ -39,7 +41,14 @@ const StoreTemplate = ({
           <div className=" text-lg font-bold small:text-xl-semi">
             <h1>Todos los productos</h1>
           </div>
-          <FilterMenu />
+          <FilterMenu
+            sortBy={sortBy || "created_at"}
+            colors={color}
+            size={size}
+            material={material}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+          />
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
@@ -49,7 +58,8 @@ const StoreTemplate = ({
             color={color}
             size={size}
             material={material}
-            priceRange={priceRange}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
             categories={categories}
           />
         </Suspense>
