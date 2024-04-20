@@ -60,22 +60,6 @@ export default function SearchModal({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  const toggleState = useToggleState()
-
-  const products = fetch(`http://10.9.0.6:7700/indexes/products/search`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_SEARCH_API_KEY}`,
-    },
-    method: "POST",
-    body: JSON.stringify({ q: "" }),
-  })
-    .catch((e) => {
-      console.log(e)
-    })
-    .then((e) => {
-      console.log(e)
-    })
 
   return (
     <div className="relative z-[75]">
