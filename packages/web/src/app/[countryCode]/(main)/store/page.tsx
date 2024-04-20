@@ -15,7 +15,8 @@ type Params = {
     category?: string
     color?: string
     size?: string
-    priceRange?: string
+    minPrice?: string
+    maxPrice?: string
     tags?: string
     material?: string
   }
@@ -25,19 +26,32 @@ type Params = {
 }
 
 export default async function StorePage({ searchParams, params }: Params) {
-  const { sortBy, page, tags, priceRange, material, size, color, category } =
-    searchParams
-  console.log(searchParams)
-  return (
-    <StoreTemplate
-      sortBy={sortBy}
-      page={page}
-      countryCode={params.countryCode}
-      color={color && JSON.parse(color)}
-      size={size && JSON.parse(size)}
-      material={material && JSON.parse(material)}
-      priceRange={priceRange && JSON.parse(priceRange)}
-      categories={category && JSON.parse(category)}
-    />
-  )
+  const {
+    sortBy,
+    page,
+    tags,
+    minPrice,
+    maxPrice,
+    material,
+    size,
+    color,
+    category,
+  } = searchParams
+  try {
+    return (
+      <StoreTemplate
+        sortBy={sortBy}
+        page={page}
+        countryCode={params.countryCode}
+        color={color && JSON.parse(color)}
+        size={size && JSON.parse(size)}
+        material={material && JSON.parse(material)}
+        minPrice={minPrice && JSON.parse(minPrice)}
+        maxPrice={maxPrice && JSON.parse(maxPrice)}
+        categories={category && JSON.parse(category)}
+      />
+    )
+  } catch (e) {
+    return <StoreTemplate countryCode={params.countryCode} />
+  }
 }
