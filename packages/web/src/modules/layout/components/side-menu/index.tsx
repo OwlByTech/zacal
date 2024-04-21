@@ -13,7 +13,6 @@ const SideMenuItems = {
   Inicio: "/",
   Categorias: "/categories",
   Tienda: "/store",
-  Cuenta: "/account",
 }
 
 const SideMenu = ({}) => {
@@ -49,10 +48,10 @@ const SideMenu = ({}) => {
                 leaveTo="opacity-0"
               >
                 <Popover.Panel className="flex flex-col fixed w-full sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-screen z-50 inset-x-0 text-sm text-ui-fg-on-color top-0">
-                  <div className="flex flex-col h-full bg-principal-0 justify-between p-6">
+                  <div className="flex flex-col h-full bg-principal-950 justify-between p-6">
                     <div className="flex justify-end" id="xmark">
                       <button
-                        className="text-principal-950 font-bold text-xl"
+                        className="text-principal-0 font-bold text-xl"
                         onClick={close}
                       >
                         X
@@ -64,7 +63,7 @@ const SideMenu = ({}) => {
                           <li key={name}>
                             <LocalizedClientLink
                               href={href}
-                              className="text-md leading-10 hover:text-ui-fg-disabled text-principal-950"
+                              className="text-md leading-10 hover:text-ui-fg-disabled text-principal-0"
                               onClick={close}
                             >
                               {name}
@@ -86,7 +85,7 @@ const SideMenu = ({}) => {
                           )}
                         />
                       </div>
-                      <Text className="flex justify-between txt-compact-small text-principal-950">
+                      <Text className="flex justify-between txt-compact-small text-principal-0">
                         © {new Date().getFullYear()} Zacal reserved.
                       </Text>
                     </div>
