@@ -35,7 +35,6 @@ const emptyResponse = {
  */
 
 export async function getProductsListFilter(body: any) {
-  console.log("askf", body)
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products-custom/`,
     {
@@ -48,7 +47,7 @@ export async function getProductsListFilter(body: any) {
   )
   try {
     const res = await data.json()
-    console.log(res)
+    console.log("safsd", res)
     return res
   } catch (e) {
     console.log(e)
