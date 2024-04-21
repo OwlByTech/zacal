@@ -9,7 +9,7 @@ export default async function AdShoesEver({ customer }: { customer: any }) {
       <div>
         {!customer && (
           <LocalizedClientLink
-            className="bg-principal-0 border border-principal-950 text-principal-950 p-2.5 text-sm sm:text-base mx-7"
+            className="bg-principal-0 border border-principal-950 text-principal-950 p-1.5 small:p-2.5 text-xs sm:text-base"
             href="/account"
           >
             CREAR CUENTA
