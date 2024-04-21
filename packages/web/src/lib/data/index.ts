@@ -47,10 +47,8 @@ export async function getProductsListFilter(body: any) {
   )
   try {
     const res = await data.json()
-    console.log("safsd", res)
     return res
   } catch (e) {
-    console.log(e)
     return { products: [], count: 0 }
   }
 }
