@@ -50,25 +50,25 @@ const SideMenu = ({}) => {
                 leaveTo="opacity-0"
               >
                 <Popover.Panel className="flex flex-col fixed w-full sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-screen z-50 inset-x-0 text-sm text-ui-fg-on-color top-0">
-                  <div className="flex flex-col h-full bg-principal-950 justify-between p-6">
+                  <div className="flex flex-col h-full bg-principal-0 justify-between ">
                     <div className="flex justify-end" id="xmark">
                       <button
-                        className="text-principal-0 font-bold text-xl"
+                        className="text-principal-950 font-bold text-xl p-6"
                         onClick={close}
                       >
-                        X
+                        <img src="/close.svg" height={20} width={20} />
                       </button>
                     </div>
-                    <ul className="flex flex-col gap-6 items-start justify-start">
+                    <ul className="flex flex-col w-full gap-6 items-start justify-start">
                       {Object.entries(SideMenuItems).map(([name, href]) => {
                         return (
-                          <li key={name}>
+                          <li key={name} className="w-full">
                             <LocalizedClientLink
                               href={href}
-                              className="text-md leading-10 hover:text-ui-fg-disabled text-principal-0"
+                              className=" px-4 text-md uppercase flex  border-b flex-grow text-black font-bold"
                               onClick={close}
                             >
-                              {name}
+                              <p> {name}</p>
                             </LocalizedClientLink>
                           </li>
                         )

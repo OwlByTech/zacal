@@ -31,7 +31,7 @@ const FilterMenu = ({
           {({ open, close }) => (
             <>
               <div className="relative flex h-full">
-                <Popover.Button className="relative h-full flex items-center p-1 md:p-2 border-2 border-black transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base text-xs md:text-sm">
+                <Popover.Button className="relative h-full flex items-center p-2 border-2 border-black transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base text-xs md:text-sm">
                   Filtrar y ordenar
                 </Popover.Button>
               </div>

@@ -16,11 +16,22 @@ export default function CategoryTemplate({
   sortBy,
   page,
   countryCode,
+  minPrice,
+  maxPrice,
+  material,
+  size,
+  color,
 }: {
   categories: ProductCategoryWithChildren[]
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  color?: string[]
+  size?: string[]
+  minPrice?: number
+  maxPrice?: number
+  tags?: string[]
+  material?: string[]
 }) {
   const pageNumber = page ? parseInt(page) : 1
 
@@ -31,8 +42,8 @@ export default function CategoryTemplate({
 
   return (
     <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
-      <div className="w-full">
-        <div className="w-full">
+      <div className="flex flex-row flex-grow gap-6">
+        <section className="">
           <div className="flex flex-row mb-8 text-2xl-semi gap-4">
             {parents &&
               parents.map((parent) => (
@@ -66,16 +77,32 @@ export default function CategoryTemplate({
               </ul>
             </div>
           )}
-        </div>
-        <FilterMenu />
-        <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sortBy || "created_at"}
-            page={pageNumber}
-            categoryId={category.id}
-            countryCode={countryCode}
-          />
-        </Suspense>
+        </section>
+        <section className="flex flex-col gap-4 flex-grow">
+          <div className="flex justify-end">
+            <FilterMenu
+              sortBy={sortBy || "created_at"}
+              colors={color}
+              size={size}
+              material={material}
+              maxPrice={maxPrice}
+              minPrice={minPrice}
+            />
+          </div>
+          <Suspense fallback={<SkeletonProductGrid />}>
+            <PaginatedProducts
+              sortBy={sortBy || "created_at"}
+              page={pageNumber}
+              countryCode={countryCode}
+              color={color}
+              size={size}
+              material={material}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              categoryId={category.id}
+            />
+          </Suspense>
+        </section>
       </div>
     </div>
   )

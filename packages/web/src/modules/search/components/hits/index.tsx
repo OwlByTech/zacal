@@ -31,6 +31,7 @@ const Hits = ({
   const { query } = useSearchBox()
   const { hits } = useHits(props)
 
+  console.log(hits)
   return (
     <div
       className={clx(
@@ -44,18 +45,22 @@ const Hits = ({
     >
       <div className="flex flex-col gap-5 mb-4 px-8 sm:p-2 sm:grid sm:grid-cols-2 small:grid-cols-3 overflow-scroll ">
         {hits.slice(0, 6).map((hit, index) => (
-          <li
-            key={index}
-            className={clx("list-none", {
-              "hidden sm:block": index > 2,
-            })}
-          >
-            <Hit
-              hit={hit as unknown as ProductHit}
-              header={header}
-              region={region}
-            />
-          </li>
+          <>
+            {hit.status === "published" && hit.thumbnail && (
+              <li
+                key={index}
+                className={clx("list-none", {
+                  "hidden sm:block": index > 2,
+                })}
+              >
+                <Hit
+                  hit={hit as unknown as ProductHit}
+                  header={header}
+                  region={region}
+                />
+              </li>
+            )}
+          </>
         ))}
       </div>
       <ShowAll />
