@@ -26,7 +26,6 @@ class ProductCustomService extends TransactionBaseService {
     async find(data?: FilterProducts): Promise<any> {
         const query = this.productRepository_.createQueryBuilder("product")
         query.addSelect("money_amount.amount", "amount")
-        console.log(data)
         if (data.category && data.category.length > 0) {
             query.innerJoin("product_category_product", "product_category_product", "product.id=product_category_product.product_id")
         }
