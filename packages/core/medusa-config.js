@@ -67,11 +67,12 @@ const plugins = [
                         searchableAttributes: [
                             "title",
                             "description",
-                            "variant_sku",
                         ],
                         displayedAttributes: [
                             "id",
                             "title",
+                            "status",
+                            "deleted_at",
                             "description",
                             "variant_sku",
                             "thumbnail",
