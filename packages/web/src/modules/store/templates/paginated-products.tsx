@@ -67,6 +67,7 @@ export default async function PaginatedProducts({
           minPrice={minPrice}
           maxPrice={maxPrice}
           categories={categories}
+          categoryId={categoryId}
         />
       </Suspense>
     </>
