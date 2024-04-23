@@ -60,6 +60,7 @@ export default function SearchModal({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  const toggleState = useToggleState()
 
   return (
     <div className="relative z-[75]">

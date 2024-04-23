@@ -11,22 +11,20 @@
 }
 
 ::-webkit-scrollbar {
-  width: 50px !important;               /* width of the entire scrollbar */
+  width: 50px !important; /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: black;        /* color of the tracking area */
+  background: black; /* color of the tracking area */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: black;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid black;  /* creates padding around scroll thumb */
+  background-color: black; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid black; /* creates padding around scroll thumb */
 }
 
-
 @layer utilities {
-
   input:focus ~ label,
   input:not(:placeholder-shown) ~ label {
     @apply -translate-y-2 text-xsmall-regular;
@@ -65,7 +63,6 @@
   width: 0;
   height: 40em;
   margin-top: -40em;
-
 }
 
 @layer components {
