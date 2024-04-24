@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Suspense } from "react"
+import { Suspense, useEffect, useState } from "react"
 
 import { ProductCategoryWithChildren } from "types/global"
 import InteractiveLink from "@modules/common/components/interactive-link"
@@ -8,6 +8,8 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import directus from "@lib/data/directus"
+import { readItems } from "@directus/sdk"
 
 export default function CategoryTemplate({
   categories,

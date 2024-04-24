@@ -44,18 +44,18 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           )
         })}
       </div>
-      <div className="px-1 gap-2 inline-block overflow-y-auto">
+      <div className="flex flex-grow px-1 gap-2  overflow-x-auto">
         {images.map((image, index) => {
           return (
             <Container
               key={image.id}
-              className="container-gallery relative aspect-[29/34] w-full rounded-none overflow-hidden bg-ui-bg-subtle px-1 my-2 "
+              className="container-gallery relative aspect-[29/34] w-full rounded-none overflow-x-auto bg-ui-bg-subtle px-1 my-2 "
               id={image.id}
               ref={containerRef}
             >
               <img
                 src={image.url}
-                className=" container-gallery h-full w-full object-cover absolute rounded-none inset-0 border border-black"
+                className="container-gallery h-full w-full object-cover absolute rounded-none inset-0 border border-black"
                 alt={`Product image ${index + 1}`}
                 sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
               />
