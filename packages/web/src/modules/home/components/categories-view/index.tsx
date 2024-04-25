@@ -48,7 +48,7 @@ export default function CategoryView({
 
       <section className="flex w-full flex-row justify-between">
         <ul
-          className={`category flex flex-row w-full justify-start items-center gap-x-6 px-2 pb-6 overflow-x-scroll`}
+          className={`category flex flex-row w-full justify-start items-center gap-x-6 px-2 pb-6 overflow-x-auto`}
         >
           {products.map((product, index) => (
             <li
