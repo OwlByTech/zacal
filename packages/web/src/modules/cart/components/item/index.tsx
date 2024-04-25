@@ -52,14 +52,14 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
           href={`/products/${handle}`}
           className={clx("flex", {
             "w-16": type === "preview",
-            "small:w-36 w-12": type === "full",
+            "small:w-36 w-16": type === "full",
           })}
         >
           <Thumbnail thumbnail={item.thumbnail} size="square" />
         </LocalizedClientLink>
       </div>
       <div className="flex flex-col small:flex-row flex-grow">
-        <div className="flex flex-col items-center small:items-start gap-2 flex-grow">
+        <div className="flex small:flex-col small:items-start gap-2 flex-grow">
           <div className="text-left uppercase ">
             <Text className="font-bold">{item.title}</Text>
             <LineItemOptions variant={item.variant} />
@@ -72,11 +72,17 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
               <LineItemPrice item={item} region={region} style="tight" />
             </div>
           </div>
+          <div className="flex flex-grow items-start justify-end small:hidden">
+            <DeleteButton id={item.id} />
+          </div>
         </div>
         <div>
           {type === "full" && (
             <div className="flex flex-col gap-4 ">
-              <div className="flex flex-grow gap-2 items-center">
+              <div className="flex flex-col gap-2 justify-end small:gap-5">
+                <div className="hidden small:flex justify-end flex-grow">
+                  <DeleteButton id={item.id} />
+                </div>
                 {updating && <Spinner />}
                 <CartItemSelect
                   value={item.quantity}
@@ -101,7 +107,6 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
                     )
                   )}
                 </CartItemSelect>
-                <DeleteButton id={item.id} />
                 <ErrorMessage error={error} />
               </div>
             </div>

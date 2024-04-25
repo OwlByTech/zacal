@@ -4,7 +4,7 @@ import { Container } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 type ImageGalleryProps = {
   images: MedusaImage[]
@@ -21,6 +21,8 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
     })
   }
 
+  const [imageIndex, setImageIndex] = useState(0)
+
   return (
     <>
       <div
@@ -32,12 +34,14 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             <button
               key={image.id}
               onClick={() => {
-                scrollToSection(image.id)
+                setImageIndex(index)
               }}
             >
               <img
                 src={image.url}
-                className="h-20 w-16 object-fill rounded-none hover:border hover:border-black "
+                className={`h-20 w-16 object-fill rounded-none hover:border hover:border-black ${
+                  index === imageIndex && "border border-principal-950"
+                }`}
                 alt={`Product image ${index + 1}`}
               />
             </button>
@@ -45,23 +49,19 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         })}
       </div>
       <div className="flex flex-grow px-1 gap-2  overflow-x-auto">
-        {images.map((image, index) => {
-          return (
-            <Container
-              key={image.id}
-              className="container-gallery relative aspect-[29/34] w-full rounded-none overflow-x-auto bg-ui-bg-subtle px-1 my-2 "
-              id={image.id}
-              ref={containerRef}
-            >
-              <img
-                src={image.url}
-                className="container-gallery h-full w-full object-cover absolute rounded-none inset-0 border border-black"
-                alt={`Product image ${index + 1}`}
-                sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
-              />
-            </Container>
-          )
-        })}
+        <Container
+          key={images[imageIndex].id}
+          className="container-gallery relative aspect-[29/34] w-full rounded-none overflow-x-auto bg-ui-bg-subtle px-1 my-2 "
+          id={images[imageIndex].id}
+          ref={containerRef}
+        >
+          <img
+            src={images[imageIndex].url}
+            className="container-gallery h-full w-full object-cover absolute rounded-none inset-0 border border-black"
+            alt={`Product image ${+1}`}
+            sizes="(max-width: 576px) 240px, (max-width: 768px) 320px, (max-width: 992px) 440px, 760px"
+          />
+        </Container>
       </div>
     </>
   )
