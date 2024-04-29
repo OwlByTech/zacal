@@ -1,12 +1,7 @@
-import {
-  getProductsListFilter,
-  getProductsListWithSort,
-  getRegion,
-} from "@lib/data"
+import { getProductsListFilter, getRegion } from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { method } from "lodash"
 
 const PRODUCT_LIMIT = 20
 
@@ -81,11 +76,15 @@ export default async function ListProducts({
   if (size) {
     queryParams["size"] = size
   }
-  if (minPrice && maxPrice) {
+  if (minPrice) {
     queryParams["minPrice"] = minPrice
+  }
+  if (maxPrice) {
     queryParams["maxPrice"] = maxPrice
   }
+
   const { products, count } = await getProductsListFilter(queryParams)
+  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 
   return (
     <>
@@ -98,7 +97,7 @@ export default async function ListProducts({
           )
         })}
       </ul>
-      {/*totalPages > 1 && <Pagination page={page} totalPages={totalPages} />*/}
+      {totalPages > 1 && <Pagination page={page} totalPages={totalPages} />}
     </>
   )
 }
