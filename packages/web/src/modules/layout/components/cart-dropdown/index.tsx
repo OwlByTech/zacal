@@ -191,7 +191,14 @@ const CartDropdown = ({
                         <span className="font-normal">(excl. impuestos)</span>
                       </span>
                       <span className="text-large-semi">
-                        {"$ " + cartState.subtotal?.toLocaleString()}
+                        {"$"}
+                        {
+                          formatAmount({
+                            amount: cartState.subtotal || 0,
+                            region: cartState.region,
+                            includeTaxes: false,
+                          }).split("COP", 2)[1]
+                        }
                       </span>
                     </div>
                     <LocalizedClientLink href="/cart" passHref>
