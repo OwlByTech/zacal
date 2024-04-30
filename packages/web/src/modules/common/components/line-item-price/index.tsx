@@ -28,7 +28,13 @@ const LineItemPrice = ({
             <p>
               {style === "default" && <span className="">Original: </span>}
               <span className="line-through ">
-                {"$ " + originalPrice.toLocaleString() || 0}
+                {
+                  formatAmount({
+                    amount: originalPrice,
+                    region: region,
+                    includeTaxes: false,
+                  }).split("COP")[1]
+                }
               </span>
             </p>
             {style === "default" && (
@@ -43,7 +49,14 @@ const LineItemPrice = ({
             "text-ui-fg-interactive": hasReducedPrice,
           })}
         >
-          {"$ " + item.total?.toLocaleString() || 0}
+          $
+          {
+            formatAmount({
+              amount: item.total || 0,
+              region: region,
+              includeTaxes: false,
+            }).split("COP")[1]
+          }
         </span>
       </div>
     </div>

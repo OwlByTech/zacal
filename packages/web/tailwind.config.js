@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 const path = require("path")
 
 module.exports = {
@@ -70,16 +71,7 @@ module.exports = {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
+        raleway: ["var(--font-raleway)"],
       },
       keyframes: {
         ring: {

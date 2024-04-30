@@ -13,6 +13,7 @@ const SideMenuItems = {
   Inicio: "/",
   Categorias: "/categories",
   Tienda: "/store",
+  Cuenta: "/account",
 }
 
 const SideMenu = ({}) => {
@@ -55,19 +56,19 @@ const SideMenu = ({}) => {
                         className="text-principal-0 font-bold text-xl"
                         onClick={close}
                       >
-                        X
+                        <img src="/close.svg" height={20} width={20} />
                       </button>
                     </div>
-                    <ul className="flex flex-col gap-6 items-start justify-start">
+                    <ul className="flex flex-col w-full gap-6 items-start justify-start">
                       {Object.entries(SideMenuItems).map(([name, href]) => {
                         return (
-                          <li key={name}>
+                          <li key={name} className="w-full">
                             <LocalizedClientLink
                               href={href}
                               className="text-md leading-10 hover:text-ui-fg-disabled text-principal-0"
                               onClick={close}
                             >
-                              {name}
+                              <p> {name}</p>
                             </LocalizedClientLink>
                           </li>
                         )

@@ -38,21 +38,21 @@ export default async function OutletCategory({ region }: Props) {
   const {
     response: { products: exclusive_products, count },
   } = await getProductsListWithSort({
-    queryParams: { category_id: [product_categories[0].id] },
+    queryParams: { category_id: [product_categories[0]?.id] },
     countryCode: "co",
     page: 1,
   })
   const {
     response: { products: new_products },
   } = await getProductsListWithSort({
-    queryParams: { category_id: [product_categories_news[0].id] },
+    queryParams: { category_id: [product_categories_news[0]?.id] },
     countryCode: "co",
     page: 1,
   })
   const {
     response: { products: colection_products },
   } = await getProductsListWithSort({
-    queryParams: { category_id: [product_categories_colection[0].id] },
+    queryParams: { category_id: [product_categories_colection[0]?.id] },
     countryCode: "co",
     page: 1,
   })

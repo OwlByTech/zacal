@@ -2,6 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face{
+  font-family:"Raleway";
+  src:url("../../public/font/Raleway-VariableFont_wght.ttf") format('ttf'))
+}
+:root {
+  --font-raleway:Raleway
+}
+
 ::-webkit-scrollbar {
   width: 50px !important; /* width of the entire scrollbar */
 }

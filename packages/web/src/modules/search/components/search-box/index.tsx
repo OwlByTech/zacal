@@ -11,7 +11,6 @@ const ControlledSearchBox = ({
   onChange,
   onReset,
   onSubmit,
-  placeholder,
   value,
   ...props
 }: ControlledSearchBoxProps) => {
@@ -48,7 +47,7 @@ const ControlledSearchBox = ({
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
-            placeholder={placeholder}
+            placeholder={"Buscar productos"}
             spellCheck={false}
             type="search"
             value={value}

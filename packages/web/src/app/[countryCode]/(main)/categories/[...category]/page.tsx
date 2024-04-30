@@ -4,12 +4,20 @@ import { notFound } from "next/navigation"
 import { getCategoryByHandle, listCategories, listRegions } from "@lib/data"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+export const revalidate = 0
 
 type Props = {
   params: { category: string[]; countryCode: string }
   searchParams: {
     sortBy?: SortOptions
     page?: string
+    category?: string
+    color?: string
+    size?: string
+    minPrice?: string
+    maxPrice?: string
+    tags?: string
+    material?: string
   }
 }
 
@@ -65,8 +73,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
-  const { sortBy, page } = searchParams
-
+  const { sortBy, page, tags, minPrice, maxPrice, material, size, color } =
+    searchParams
   const { product_categories } = await getCategoryByHandle(
     params.category
   ).then((product_categories) => product_categories)
@@ -75,12 +83,28 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     notFound()
   }
 
-  return (
-    <CategoryTemplate
-      categories={product_categories}
-      sortBy={sortBy}
-      page={page}
-      countryCode={params.countryCode}
-    />
-  )
+  try {
+    return (
+      <CategoryTemplate
+        categories={product_categories}
+        sortBy={sortBy}
+        page={page}
+        countryCode={params.countryCode}
+        color={color && JSON.parse(color)}
+        size={size && JSON.parse(size)}
+        material={material && JSON.parse(material)}
+        minPrice={minPrice && JSON.parse(minPrice)}
+        maxPrice={maxPrice && JSON.parse(maxPrice)}
+      />
+    )
+  } catch (e) {
+    return (
+      <CategoryTemplate
+        categories={product_categories}
+        sortBy={sortBy}
+        page={page}
+        countryCode={params.countryCode}
+      />
+    )
+  }
 }

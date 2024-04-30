@@ -1,15 +1,29 @@
-import { getProductsListWithSort, getRegion } from "@lib/data"
+import {
+  getProductsListFilter,
+  getProductsListWithSort,
+  getRegion,
+} from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { method } from "lodash"
+import ListProducts from "../components/list-products/list-products"
+import { Suspense } from "react"
+import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
-const PRODUCT_LIMIT = 12
+const PRODUCT_LIMIT = 20
 
 type PaginatedProductsParams = {
   limit: number
   collection_id?: string[]
-  category_id?: string[]
+  category?: string[]
+  color?: string[]
+  material?: string[]
+  size?: string[]
   id?: string[]
+  minPrice?: number
+  maxPrice?: number
+  sort?: SortOptions
 }
 
 export default async function PaginatedProducts({
@@ -19,6 +33,12 @@ export default async function PaginatedProducts({
   categoryId,
   productsIds,
   countryCode,
+  color,
+  minPrice,
+  maxPrice,
+  size,
+  material,
+  categories,
 }: {
   sortBy?: SortOptions
   page: number
@@ -26,52 +46,30 @@ export default async function PaginatedProducts({
   categoryId?: string
   productsIds?: string[]
   countryCode: string
+  color?: string[]
+  size?: string[]
+  minPrice: any
+  maxPrice: any
+  tags?: string[]
+  material?: string[]
+  categories?: string[]
 }) {
-  const region = await getRegion(countryCode)
-
-  if (!region) {
-    return null
-  }
-
-  const queryParams: PaginatedProductsParams = {
-    limit: PRODUCT_LIMIT,
-  }
-
-  if (collectionId) {
-    queryParams["collection_id"] = [collectionId]
-  }
-
-  if (categoryId) {
-    queryParams["category_id"] = [categoryId]
-  }
-
-  if (productsIds) {
-    queryParams["id"] = productsIds
-  }
-
-  const {
-    response: { products, count },
-  } = await getProductsListWithSort({
-    page,
-    queryParams,
-    sortBy,
-    countryCode,
-  })
-
-  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
-
   return (
     <>
-      <ul className="grid justify-center sm:grid-cols-2 w-full small:grid-cols-4 gap-x-6 gap-y-8">
-        {products.map((p) => {
-          return (
-            <li key={p.id} className="">
-              <ProductPreview productPreview={p} region={region} />
-            </li>
-          )
-        })}
-      </ul>
-      {totalPages > 1 && <Pagination page={page} totalPages={totalPages} />}
+      <Suspense fallback={<SkeletonProductGrid />}>
+        <ListProducts
+          sortBy={sortBy || "created_at"}
+          page={page}
+          countryCode={countryCode}
+          color={color}
+          size={size}
+          material={material}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          categories={categories}
+          categoryId={categoryId}
+        />
+      </Suspense>
     </>
   )
 }
