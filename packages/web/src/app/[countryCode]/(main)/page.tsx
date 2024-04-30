@@ -12,9 +12,9 @@ import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 import AdShoesEver from "@modules/home/components/ad-shoes-ever"
 import BestShoes from "@modules/home/components/best-shoes"
-import Outlet from "@modules/home/outlet"
 import BestDealsCategory from "@modules/home/templates/best-deals"
 import OutletCategory from "@modules/home/templates/outlet"
+import OnSaleCategory from "@modules/home/templates/on-sale"
 
 export const metadata: Metadata = {
   title: "Zacal",
@@ -79,11 +79,11 @@ export default async function Home({
     <>
       <div className="flex flex-col gap-6 sm:gap-20">
         <BestShoes />
-        <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
+        <div className="flex flex-col ">
           <BestDealsCategory region={region} />
         </div>
         <AdShoesEver customer={customer} />
-        <div className="flex flex-col gap-5 sm:gap-20 sm:mx-10">
+        <div className="flex flex-col gap-5 sm:gap-20">
           <OutletCategory region={region} />
         </div>
       </div>

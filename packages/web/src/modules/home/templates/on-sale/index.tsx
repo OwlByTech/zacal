@@ -1,17 +1,17 @@
 import {
   getCategoryByHandle,
+  getMedusaHeaders,
   getProductsListWithSort,
-  listRegions,
 } from "@lib/data"
-import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
+import CategoryView from "@modules/home/components/categories-view"
 
 type Props = {
   region: Region
 }
 
-export default async function BestDealsCategory({ region }: Props) {
-  const product_categories = await getCategoryByHandle(["best-shoes"]).then(
+export default async function OnSaleCategory({ region }: Props) {
+  const product_categories = await getCategoryByHandle(["on-sale"]).then(
     (product_categories) => {
       return product_categories.product_categories.filter(function (element) {
         return element !== undefined
@@ -27,22 +27,25 @@ export default async function BestDealsCategory({ region }: Props) {
     )
   }
 
+  const header = getMedusaHeaders(["products"])
   const {
     response: { products, count },
   } = await getProductsListWithSort({
     queryParams: { category_id: [product_categories[0].id] },
     countryCode: "co",
+    page: 1,
   })
 
   return (
     <>
-      <section className=" flex w-full flex-row justify-between overflow-scroll">
-        <ProductPreview
-          productPreview={products[index]}
-          region={region}
-          isFeatured
-        />
-      </section>
+      <CategoryView
+        header={header}
+        region={region}
+        products={products}
+        identificator="best"
+      >
+        <p></p>
+      </CategoryView>
     </>
   )
 }

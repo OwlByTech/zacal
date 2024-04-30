@@ -1,16 +1,9 @@
 "use client"
-import { ReactNode, Suspense, useState } from "react"
+import { ReactNode, useState } from "react"
 
-import { listRegions } from "@lib/data"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CartButton from "@modules/layout/components/cart-button"
-import SideMenu from "@modules/layout/components/side-menu"
 import Arrow from "@modules/common/components/arrow"
-import ProductPreview from "@modules/products/components/product-preview"
 import { Region } from "@medusajs/medusa"
 import ProductPreviewClient from "@modules/products/components/product-preview-client"
-
-import styles from "../../../../styles/globals.css"
 
 export default function CategoryView({
   products,
@@ -35,7 +28,7 @@ export default function CategoryView({
   }
 
   return (
-    <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-12 lg:mx-20">
+    <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-14 lg:mx-14">
       <section className="flex flex-row justify-between">
         <div>{children}</div>
         <div className=" hidden small:relative small:flex flex-row gap-4 items-end">
@@ -61,7 +54,7 @@ export default function CategoryView({
             <li
               key={product.id}
               id={`${identificator}image${index + 1}`}
-              className="small:w-1/4"
+              className="small:w-1/3 medium:w-1/4 large:w-1/5 xlarge:w-1/5 2xlarge:w-1/6"
             >
               <ProductPreviewClient
                 productPreview={product}
