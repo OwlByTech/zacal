@@ -57,7 +57,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
+        className={clx("lg:hidden inset-x-0 bottom-0 fixed z-10", {
           "pointer-events-none": !show,
         })}
       >
@@ -71,23 +71,29 @@ const MobileActions: React.FC<MobileActionsProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200">
-            <div className="flex items-center gap-x-2">
+          <div className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200 ">
+            <div className="flex flex-row justify-between gap-x-2">
               <span>{product.title}</span>
               <span>—</span>
+
               {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-ui-fg-base">
+                <div className="flex flex-col flex-grow text-sm gap-x-2">
                   {selectedPrice.price_type === "sale" && (
-                    <p>
-                      <span className="line-through text-small-regular">
-                        {selectedPrice.original_price}
+                    <div className="flex flex-row flex-grow  gap-2 justify-between">
+                      <p>
+                        <span className="line-through">
+                          {"$"}
+                          {selectedPrice.original_price?.split("COP", 2)[1]}
+                        </span>
+                      </p>
+                      <span className="text-red-600 font-bold">
+                        -{selectedPrice.percentage_diff}%
                       </span>
-                    </p>
+                    </div>
                   )}
                   <span
-                    className={clx({
-                      "text-ui-fg-interactive":
-                        selectedPrice.price_type === "sale",
+                    className={clx("font-bold", {
+                      "text-red-600": selectedPrice.price_type === "sale",
                     })}
                   >
                     {"$"}

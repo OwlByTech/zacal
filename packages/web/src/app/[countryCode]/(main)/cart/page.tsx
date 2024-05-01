@@ -26,6 +26,8 @@ const fetchCart = async () => {
   )
 
   if (!cart) {
+    //@ts-ignore
+    cookies.set("_medusa_cart_id", "")
     return null
   }
 
