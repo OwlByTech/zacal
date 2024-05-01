@@ -35,7 +35,7 @@ const Hits = ({
   return (
     <div
       className={clx(
-        "transition-[height,max-height,opacity] duration-300 ease-in-out sm:overflow-hidden  mb-1 p-px",
+        "transition-[height,max-height,opacity] h-full duration-300 ease-in-out sm:overflow-hidden  mb-1 p-px",
         className,
         {
           "max-h-full opacity-100": !!query,
@@ -49,7 +49,7 @@ const Hits = ({
             {hit.status === "published" && hit.thumbnail && (
               <li
                 key={index}
-                className={clx("list-none", {
+                className={clx("list-none ", {
                   "hidden sm:block": index > 2,
                 })}
               >
