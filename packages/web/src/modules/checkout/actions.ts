@@ -98,6 +98,7 @@ export async function submitDiscountForm(
     await applyDiscount(code).catch(async (err) => {
       await applyGiftCard(code)
     })
+
     return null
   } catch (error: any) {
     return error.toString()
