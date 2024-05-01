@@ -48,7 +48,7 @@ export default function ProductPreviewClient({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div className="h-[400px] w-[300px] md:h-[400px] md:w-[300px] large:h-[380] large:w-[270px] xlarge:h-[400] xlarge:w-[300px] border border-black p-4 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
+      <div className="h-[400px] w-[300px] md:h-[400px] md:w-[300px] large:h-[380] large:w-[270px]  border border-black p-4 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
         <Thumbnail
           thumbnail={productPreview.thumbnail}
           size="full"

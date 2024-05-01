@@ -91,9 +91,7 @@ export default async function ListProducts({
       <ul className="grid justify-center sm:grid-cols-2 w-full small:grid-cols-4 gap-x-6 gap-y-8">
         {products?.map((p: any) => {
           return (
-            <li key={p.id} className="">
-              <ProductPreview productPreview={p} region={region} />
-            </li>
+            <ProductPreview key={p.id} productPreview={p} region={region} />
           )
         })}
       </ul>
