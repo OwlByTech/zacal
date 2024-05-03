@@ -1,6 +1,5 @@
 "use client"
 import { ReactNode, useState } from "react"
-import { ReactNode, useState } from "react"
 
 import Arrow from "@modules/common/components/arrow"
 import { Region } from "@medusajs/medusa"
@@ -29,7 +28,6 @@ export default function CategoryView({
   }
 
   return (
-    <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-14 lg:mx-14">
     <div className="flex flex-col gap-8 mx-5 sm:mx-10 md:mx-14 lg:mx-14">
       <section className="flex flex-row justify-between">
         <div>{children}</div>

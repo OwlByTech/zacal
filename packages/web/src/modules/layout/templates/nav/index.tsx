@@ -14,16 +14,15 @@ export default async function Nav() {
       <div className="block md:hidden w-1/3">
         <SideMenu />
       </div>
-      <LocalizedClientLink
-        href="/"
-        className="w-1/3 md:w-auto flex flex-row justify-center items-center"
-      >
-        <img
-          src="/logo.png"
-          alt=""
-          className="h-12 w-14 small:h-12 small:w-14"
-        />
-      </LocalizedClientLink>
+      <div className="w-1/3 md:w-auto flex flex-row justify-center items-center mx-5">
+        <LocalizedClientLink href="/">
+          <img
+            src="/logo.png"
+            alt=""
+            className="h-12 w-14 small:h-[70px] small:w-[80px]"
+          />
+        </LocalizedClientLink>
+      </div>
       <div className="hidden md:flex  h-full flex-row justify-center items-center text-sm font-semibold gap-1 sm:gap-5">
         <LocalizedClientLink
           className="hover:bg-principal-400 hover:text-principal-950 text-principal-0 p-2"
@@ -46,7 +45,7 @@ export default async function Nav() {
           TIENDA
         </LocalizedClientLink>
       </div>
-      <div className="flex flex-row items-center h-full justify-end  gap-4 md:gap-6 w-1/3 md:w-auto py-1 mx-5">
+      <div className="flex flex-row items-center h-full justify-end gap-2 md:gap-6 w-1/3 md:w-auto py-1 mx-5">
         <LocalizedClientLink
           className="text-principal-0 flex flex-row h-full items-center "
           href="/search"
