@@ -20,11 +20,7 @@ export default async function OnSaleCategory({ region }: Props) {
   )
 
   if (product_categories.length == 0) {
-    return (
-      <section>
-        <h1>No existe</h1>
-      </section>
-    )
+    return <section></section>
   }
 
   const header = getMedusaHeaders(["products"])
