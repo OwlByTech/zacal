@@ -1,9 +1,6 @@
-import { Text, clx } from "@medusajs/ui"
-
 import { getCategoriesList, getCollectionsList } from "@lib/data"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
 
 export default async function Footer({ customer }: { customer: any }) {
   const { collections } = await getCollectionsList(0, 6)
@@ -25,8 +22,8 @@ export default async function Footer({ customer }: { customer: any }) {
           </LocalizedClientLink>
         </div>
       )}
-      <div className="px-7 py-16">
-        <small className="flex flex-row">
+      <div className="px-7 py-16 h-full content-end">
+        <small className="flex flex-row items-end content-end">
           <p className="text-white font-bold">&copy; 2024 zacal, </p>
           <a className="text-white" href="owlbytech.com">
             Made by OwlByTech
