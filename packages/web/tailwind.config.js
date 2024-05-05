@@ -59,6 +59,7 @@ module.exports = {
         "2xsmall": "320px",
         xsmall: "512px",
         small: "1024px",
+        smsm: "1044",
         medium: "1280px",
         large: "1440px",
         xlarge: "1680px",

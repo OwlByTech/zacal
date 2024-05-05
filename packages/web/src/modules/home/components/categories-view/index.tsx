@@ -48,13 +48,13 @@ export default function CategoryView({
 
       <section className="flex w-full flex-row justify-between">
         <ul
-          className={`category flex flex-row w-full justify-start items-center gap-x-6 px-2 pb-6 overflow-x-auto`}
+          className={`category flex flex-row w-full justify-start items-center gap-x-6 px-2 pb-6 overflow-x-scroll`}
         >
           {products.map((product, index) => (
             <li
               key={product.id}
               id={`${identificator}image${index + 1}`}
-              className="small:w-1/6"
+              className="small:w-1/3 medium:w-1/4 large:w-1/5 xlarge:w-1/5 2xlarge:w-1/6"
             >
               <ProductPreviewClient
                 productPreview={product}

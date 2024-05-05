@@ -48,16 +48,16 @@ export default function ProductPreviewClient({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div className="h-[400px] w-[300px] md:h-[400px] md:w-[300px] large:h-[380] large:w-[270px]  border border-black p-4 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
+      <div className="h-[400px] w-[300px] md:h-[400px] md:w-[300px] large:h[300px] large:h-[380px] large:w-[270px] xlarge:h-[400] xlarge:w-[300px] border border-black p-4 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
         <Thumbnail
           thumbnail={productPreview.thumbnail}
           size="full"
           isFeatured={isFeatured}
         />
 
-        <div className="flex-col p-2 flex mt-4 justify-between ">
-          <p className="text-md text-gray-600 ">{productPreview.title}</p>
-          <div className="flex items-center font-semibold gap-x-2">
+        <div className="flex-col p-2 flex txt-compact-medium justify-between ">
+          <Text className="text-ui-fg-subtle ">{productPreview.title}</Text>
+          <div className="flex items-center gap-x-2">
             {priceCheapest && <PreviewPrice price={priceCheapest} />}
           </div>
         </div>
