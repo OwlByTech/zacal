@@ -39,7 +39,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
           numberOfLines > 1 ? "items" : "item"
         }`}</span>
       </div>
-      <div className="grid grid-cols-2 small:grid-cols-4 gap-4 my-4">
+      <div className="grid grid-cols-1 small:grid-cols-3 gap-4 my-4">
         {order.items.slice(0, 3).map((i) => {
           return (
             <div key={i.id} className="flex flex-col gap-y-2">
@@ -63,7 +63,12 @@ const OrderCard = ({ order }: OrderCardProps) => {
       </div>
       <div className="flex justify-end">
         <LocalizedClientLink href={`/account/orders/details/${order.id}`}>
-          <Button variant="secondary">Ver Detalles</Button>
+          <Button
+            className="rounded-none bg-principal-400 text-principal-950 hover:bg-principal-950 hover:text-principal-0"
+            variant="secondary"
+          >
+            Ver Detalles
+          </Button>
         </LocalizedClientLink>
       </div>
     </div>

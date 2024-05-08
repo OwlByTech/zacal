@@ -1,13 +1,11 @@
 "use client"
 
 import { Popover, Transition } from "@headlessui/react"
-import { ArrowRightMini, XMark } from "@medusajs/icons"
-import { Region } from "@medusajs/medusa"
+import { ArrowRightMini } from "@medusajs/icons"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CountrySelect from "../country-select"
 
 const SideMenuItems = {
   Inicio: "/",
@@ -31,6 +29,7 @@ const SideMenu = ({}) => {
                     viewBox="0 0 50 50"
                     width="20px"
                     height="20px"
+                    fill="#FFFFFF"
                   >
                     <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z" />
                   </svg>
@@ -54,37 +53,25 @@ const SideMenu = ({}) => {
                         className="text-principal-0 font-bold text-xl"
                         onClick={close}
                       >
-                        X
+                        <img src="/close.svg" height={20} width={20} />
                       </button>
                     </div>
-                    <ul className="flex flex-col gap-6 items-start justify-start">
+                    <ul className="flex flex-col w-full gap-6 items-start justify-start">
                       {Object.entries(SideMenuItems).map(([name, href]) => {
                         return (
-                          <li key={name}>
+                          <li key={name} className="w-full">
                             <LocalizedClientLink
                               href={href}
                               className="text-md leading-10 hover:text-ui-fg-disabled text-principal-0"
                               onClick={close}
                             >
-                              {name}
+                              <p> {name}</p>
                             </LocalizedClientLink>
                           </li>
                         )
                       })}
                     </ul>
                     <div className="flex flex-col gap-y-6">
-                      <div
-                        className="flex justify-between"
-                        onMouseEnter={toggleState.open}
-                        onMouseLeave={toggleState.close}
-                      >
-                        <ArrowRightMini
-                          className={clx(
-                            "transition-transform duration-150",
-                            toggleState.state ? "-rotate-90" : ""
-                          )}
-                        />
-                      </div>
                       <Text className="flex justify-between txt-compact-small text-principal-0">
                         © {new Date().getFullYear()} Zacal reserved.
                       </Text>

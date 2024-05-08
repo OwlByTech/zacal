@@ -84,7 +84,7 @@ const CartDropdown = ({
               href="/cart"
             >
               <svg
-                fill="#000000"
+                fill="#FFFFFF"
                 version="1.1"
                 id="Capa_1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,14 @@ const CartDropdown = ({
                         <span className="font-normal">(excl. impuestos)</span>
                       </span>
                       <span className="text-large-semi">
-                        {"$ " + cartState.subtotal?.toLocaleString()}
+                        {"$"}
+                        {
+                          formatAmount({
+                            amount: cartState.subtotal || 0,
+                            region: cartState.region,
+                            includeTaxes: false,
+                          }).split("COP", 2)[1]
+                        }
                       </span>
                     </div>
                     <LocalizedClientLink href="/cart" passHref>

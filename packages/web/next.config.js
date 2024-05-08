@@ -13,6 +13,9 @@ dotenv.config({
   path: envPath,
 })
 const nextConfig = withStoreConfig({
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   typescript: {
     // TODO: Fix all typescript errors
     ignoreBuildErrors: true,

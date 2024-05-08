@@ -39,7 +39,7 @@ export default function Outlet({
                 setButton(0)
                 setProducts(new_products)
               }}
-              className={` hover:bg-principal-950 font-bold text-[10px] sm:text-[16px] hover:text-principal-0 ${
+              className={`hover:bg-principal-950 font-bold text-[10px] sm:text-[16px] hover:text-principal-0 ${
                 button === 0
                   ? "bg-black text-white"
                   : "bg-principal-0 text-principal-950 "

@@ -2,19 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-::-webkit-scrollbar {
-  width: 50px !important; /* width of the entire scrollbar */
+@font-face{
+  font-family:"Raleway";
+  src:url("../../public/font/Raleway-VariableFont_wght.ttf") format('ttf'))
+}
+:root {
+  --font-raleway:Raleway
 }
 
-::-webkit-scrollbar-track {
-  background: black; /* color of the tracking area */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: black; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid black; /* creates padding around scroll thumb */
-}
 
 @layer utilities {
   input:focus ~ label,

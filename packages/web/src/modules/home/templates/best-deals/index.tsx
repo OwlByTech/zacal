@@ -20,11 +20,7 @@ export default async function BestDealsCategory({ region }: Props) {
   )
 
   if (product_categories.length == 0) {
-    return (
-      <section>
-        <h1>No existe</h1>
-      </section>
-    )
+    return
   }
 
   const header = getMedusaHeaders(["products"])
