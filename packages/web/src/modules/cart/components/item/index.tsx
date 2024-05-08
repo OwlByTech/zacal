@@ -1,7 +1,7 @@
 "use client"
 
 import { LineItem, Region } from "@medusajs/medusa"
-import { Table, Text, clx } from "@medusajs/ui"
+import { Text, clx } from "@medusajs/ui"
 
 import CartItemSelect from "@modules/cart/components/cart-item-select"
 import DeleteButton from "@modules/common/components/delete-button"
@@ -46,77 +46,74 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   }
 
   return (
-    <Table.Row className="w-full">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <div className="w-full flex flex-row gap-4  border-b-2 border-black pb-2">
+      <div className="">
         <LocalizedClientLink
           href={`/products/${handle}`}
           className={clx("flex", {
             "w-16": type === "preview",
-            "small:w-24 w-12": type === "full",
+            "small:w-36 w-16": type === "full",
           })}
         >
           <Thumbnail thumbnail={item.thumbnail} size="square" />
         </LocalizedClientLink>
-      </Table.Cell>
-
-      <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
-        <LineItemOptions variant={item.variant} />
-      </Table.Cell>
-
-      {type === "full" && (
-        <Table.Cell>
-          <div className="flex gap-2 items-center w-28">
-            <DeleteButton id={item.id} />
-            <CartItemSelect
-              value={item.quantity}
-              onChange={(value) => changeQuantity(parseInt(value.target.value))}
-              className="w-14 h-10 p-4"
-            >
-              {Array.from(
-                {
-                  length: Math.min(
-                    item.variant.inventory_quantity > 0
-                      ? item.variant.inventory_quantity
-                      : 10,
-                    10
-                  ),
-                },
-                (_, i) => (
-                  <option value={i + 1} key={i}>
-                    {i + 1}
-                  </option>
-                )
-              )}
-            </CartItemSelect>
-            {updating && <Spinner />}
+      </div>
+      <div className="flex flex-col small:flex-row flex-grow">
+        <div className="flex small:flex-col small:items-start gap-2 flex-grow">
+          <div className="text-left uppercase ">
+            <Text className="font-bold">{item.title}</Text>
+            <LineItemOptions variant={item.variant} />
+            <div className="flex flex-row gap-1 items-center">
+              <span className="text-xs">VALOR UNIDAD:</span>
+              <LineItemUnitPrice item={item} region={region} />
+            </div>
+            <div className="flex flex-row gap-1 items-center">
+              <span className="text-xs">TOTAL:</span>
+              <LineItemPrice item={item} region={region} style="tight" />
+            </div>
           </div>
-          <ErrorMessage error={error} />
-        </Table.Cell>
-      )}
-
-      {type === "full" && (
-        <Table.Cell className="hidden small:table-cell">
-          <LineItemUnitPrice item={item} region={region} style="tight" />
-        </Table.Cell>
-      )}
-
-      <Table.Cell className="!pr-0">
-        <span
-          className={clx("!pr-0", {
-            "flex flex-col items-end h-full justify-center": type === "preview",
-          })}
-        >
-          {type === "preview" && (
-            <span className="flex gap-x-1 ">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
-              <LineItemUnitPrice item={item} region={region} style="tight" />
-            </span>
+          <div className="flex flex-grow items-start justify-end small:hidden">
+            <DeleteButton id={item.id} />
+          </div>
+        </div>
+        <div>
+          {type === "full" && (
+            <div className="flex flex-col gap-4 ">
+              <div className="flex flex-col gap-2 justify-end small:gap-5">
+                <div className="hidden small:flex justify-end flex-grow">
+                  <DeleteButton id={item.id} />
+                </div>
+                {updating && <Spinner />}
+                <CartItemSelect
+                  value={item.quantity}
+                  onChange={(value) =>
+                    changeQuantity(parseInt(value.target.value))
+                  }
+                  className="w-14 h-10 p-4"
+                >
+                  {Array.from(
+                    {
+                      length: Math.min(
+                        item.variant.inventory_quantity > 0
+                          ? item.variant.inventory_quantity
+                          : 10,
+                        10
+                      ),
+                    },
+                    (_, i) => (
+                      <option value={i + 1} key={i}>
+                        {i + 1}
+                      </option>
+                    )
+                  )}
+                </CartItemSelect>
+                <ErrorMessage error={error} />
+              </div>
+            </div>
           )}
-          <LineItemPrice item={item} region={region} style="tight" />
-        </span>
-      </Table.Cell>
-    </Table.Row>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+"use client"
 import { Region } from "@medusajs/medusa"
 
 import ProductRail from "@modules/home/components/featured-products/product-rail"

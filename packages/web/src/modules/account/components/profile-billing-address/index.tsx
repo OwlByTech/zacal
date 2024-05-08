@@ -91,50 +91,50 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
         <div className="grid grid-cols-1 gap-y-2">
           <div className="grid grid-cols-2 gap-x-2">
             <Input
-              label="First name"
+              label="Nombre"
               name="billing_address.first_name"
               defaultValue={customer.billing_address?.first_name || undefined}
               required
             />
             <Input
-              label="Last name"
+              label="Apellido"
               name="billing_address.last_name"
               defaultValue={customer.billing_address?.last_name || undefined}
               required
             />
           </div>
           <Input
-            label="Company"
+            label="Compañia"
             name="billing_address.company"
             defaultValue={customer.billing_address?.company || undefined}
           />
           <Input
-            label="Address"
+            label="Dirección"
             name="billing_address.address_1"
             defaultValue={customer.billing_address?.address_1 || undefined}
             required
           />
           <Input
-            label="Apartment, suite, etc."
+            label="Apartamento, conjunto, etc."
             name="billing_address.address_2"
             defaultValue={customer.billing_address?.address_2 || undefined}
           />
           <div className="grid grid-cols-[144px_1fr] gap-x-2">
             <Input
-              label="Postal code"
+              label="Código postal"
               name="billing_address.postal_code"
               defaultValue={customer.billing_address?.postal_code || undefined}
               required
             />
             <Input
-              label="City"
+              label="Ciudad"
               name="billing_address.city"
               defaultValue={customer.billing_address?.city || undefined}
               required
             />
           </div>
           <Input
-            label="Province"
+            label="Departamento"
             name="billing_address.province"
             defaultValue={customer.billing_address?.province || undefined}
           />

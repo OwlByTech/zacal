@@ -1,13 +1,15 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  postgres:
+  db:
     image: postgres
     restart: always
     shm_size: 128mb
     env_file: ./.env
     ports:
       - 5432:5432
+    volumes:
+      - ./.docker-volumes/database:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
@@ -16,12 +18,11 @@ services:
     networks:
       zacal:
         ipv4_address: 10.9.0.2
-
   core:
     build: ./packages/core
     restart: always
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
     volumes:
       - ./packages/core:/app
@@ -41,10 +42,38 @@ services:
     env_file: .env
     ports:
       - 8000:8000
+    depends_on:
+      db:
+        condition: service_healthy
+
     networks:
       zacal:
         ipv4_address: 10.9.0.4
-
+  cms:
+    image: directus/directus:10.10.4
+    ports:
+      - 8055:8055
+    volumes:
+      - ./.docker-volumes/database:/directus/database
+      - ./.docker-volumes/uploads:/directus/uploads
+      - ./.docker-volumes/extensions:/directus/extensions
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      zacal:
+        ipv4_address: 10.9.0.5
+  meili:
+    image: getmeili/meilisearch:latest
+    build: ./packages/meili
+    environment:
+      MEILI_MASTER_KEY: "${MEILISEARCH_API_KEY}"
+    ports:
+      - 7700:7700
+    networks:
+      zacal:
+        ipv4_address: 10.9.0.6
 networks:
   zacal:
     driver: bridge

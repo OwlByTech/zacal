@@ -29,26 +29,28 @@ export default function ProductPrice({
   }
 
   return (
-    <div className="flex flex-col text-ui-fg-base">
-      <span
-        className={clx("text-xl-semi", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
-        })}
-      >
-        {!variant && "From "}
-        {selectedPrice.calculated_price}
-      </span>
+    <div className="flex flex-col flex-grow ">
       {selectedPrice.price_type === "sale" && (
-        <>
+        <div className="flex flex-row flex-grow justify-between">
           <p>
-            <span className="text-ui-fg-subtle">Original: </span>
-            <span className="line-through">{selectedPrice.original_price}</span>
+            <span className="line-through">
+              {"$"}
+              {selectedPrice.original_price?.split("COP", 2)[1]}
+            </span>
           </p>
-          <span className="text-ui-fg-interactive">
+          <span className="text-red-600 font-bold">
             -{selectedPrice.percentage_diff}%
           </span>
-        </>
+        </div>
       )}
+      <span
+        className={clx("text-lg font-bold", {
+          "text-red-600": selectedPrice.price_type === "sale",
+        })}
+      >
+        {"$"}
+        {selectedPrice.calculated_price.split("COP", 2)[1]}
+      </span>
     </div>
   )
 }

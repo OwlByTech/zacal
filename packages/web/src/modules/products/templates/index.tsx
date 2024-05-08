@@ -29,15 +29,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
   return (
     <>
-      <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative">
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+      <div className="content-container flex flex-col justify-center small:px-40 small:flex-row small:items-start gap-10 relative">
+        <div className="hidden small:flex flex-col small:sticky small:top-48 small:py-0 small:w-1/4 py-8 gap-y-12">
           <ProductInfo product={product} />
           <ProductTabs product={product} />
         </div>
-        <div className="block w-full relative">
+
+        <div className="flex flex-col small:sticky small:top-48 small:py-0 sm:w-2/4 py-8 gap-y-4">
           <ImageGallery images={product?.images || []} />
         </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
+        <div className="flex flex-col small:sticky small:top-48 small:py-0 sm:w-1/4 py-5 ">
+          <div className="small:hidden">
+            <ProductInfo product={product} />
+          </div>
           <ProductOnboardingCta />
           <Suspense
             fallback={<ProductActions product={product} region={region} />}
@@ -45,8 +49,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             <ProductActionsWrapper id={product.id} region={region} />
           </Suspense>
         </div>
+        <div className="small:hidden flex flex-col small:sticky small:top-48 small:py-0 small:w-1/4 py-8 gap-y-12">
+          <ProductTabs product={product} />
+        </div>
       </div>
-      <div className="content-container my-16 small:my-32">
+      <div className="content-container my-16 small:my-32 px-20">
         <Suspense fallback={<SkeletonRelatedProducts />}>
           <RelatedProducts product={product} countryCode={countryCode} />
         </Suspense>

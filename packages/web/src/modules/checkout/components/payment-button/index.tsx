@@ -126,8 +126,9 @@ const StripePaymentButton = ({
         onClick={handlePayment}
         size="large"
         isLoading={submitting}
+        className="hover:bg-principal-400 hover:text-principal-950 rounded-none"
       >
-        Place order
+        Realizar pedido
       </Button>
       <ErrorMessage error={errorMessage} />
     </>
@@ -217,8 +218,9 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         isLoading={submitting}
         onClick={handlePayment}
         size="large"
+        className="hover:bg-principal-400 hover:text-principal-950 rounded-none"
       >
-        Place order
+        Realizar pedido
       </Button>
       <ErrorMessage error={errorMessage} />
     </>

@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 const path = require("path")
 
 module.exports = {
@@ -34,6 +35,14 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        principal: {
+          0: "#FFFFFF",
+          400: "#F4C841",
+          500: "#E6AE00",
+          700: "#9C5D22",
+          800: "#2A360B",
+          950: "#141414",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -50,25 +59,20 @@ module.exports = {
         "2xsmall": "320px",
         xsmall: "512px",
         small: "1024px",
+        smsm: "1044",
         medium: "1280px",
         large: "1440px",
         xlarge: "1680px",
         "2xlarge": "1920px",
       },
+      width: {
+        "1/7": "14.2857143%",
+      },
       fontSize: {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
+        raleway: ["var(--font-raleway)"],
       },
       keyframes: {
         ring: {

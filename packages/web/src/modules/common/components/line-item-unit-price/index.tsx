@@ -29,11 +29,14 @@ const LineItemUnitPrice = ({
               <span className="text-ui-fg-muted">Original: </span>
             )}
             <span className="line-through">
-              {formatAmount({
-                amount: originalPrice,
-                region: region,
-                includeTaxes: false,
-              })}
+              ${" "}
+              {
+                formatAmount({
+                  amount: originalPrice,
+                  region: region,
+                  includeTaxes: false,
+                }).split("COP", 2)[1]
+              }
             </span>
           </p>
           {style === "default" && (
@@ -48,11 +51,14 @@ const LineItemUnitPrice = ({
           "text-ui-fg-interactive": hasReducedPrice,
         })}
       >
-        {formatAmount({
-          amount: reducedPrice || item.unit_price || 0,
-          region: region,
-          includeTaxes: false,
-        })}
+        ${" "}
+        {
+          formatAmount({
+            amount: reducedPrice || item.unit_price || 0,
+            region: region,
+            includeTaxes: false,
+          }).split("COP", 2)[1]
+        }
       </span>
     </div>
   )

@@ -11,7 +11,6 @@ const ControlledSearchBox = ({
   onChange,
   onReset,
   onSubmit,
-  placeholder,
   value,
   ...props
 }: ControlledSearchBoxProps) => {
@@ -48,23 +47,13 @@ const ControlledSearchBox = ({
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
-            placeholder={placeholder}
+            placeholder={"Buscar productos"}
             spellCheck={false}
             type="search"
             value={value}
             onChange={onChange}
-            className="txt-compact-large h-6 placeholder:text-ui-fg-on-color placeholder:transition-colors focus:outline-none flex-1 bg-transparent "
+            className="text-black h-8 px-2 placeholder:text-gray-400 border-none placeholder:transition-colors focus:outline-none flex-1  "
           />
-          {value && (
-            <button
-              onClick={handleReset}
-              type="button"
-              className="items-center justify-center text-ui-fg-on-color focus:outline-none gap-x-2 px-2 txt-compact-large flex"
-            >
-              <XMarkMini />
-              Cancel
-            </button>
-          )}
         </div>
       </form>
     </div>

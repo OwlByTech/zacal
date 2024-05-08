@@ -37,14 +37,14 @@ export default async function ProductPreview({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div>
+      <div className="w-[300px] md:w-auto border border-black p-3 group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150">
         <Thumbnail
           thumbnail={productPreview.thumbnail}
           size="full"
           isFeatured={isFeatured}
         />
-        <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle">{productPreview.title}</Text>
+        <div className="flex-col p-2 flex txt-compact-medium mt-4 justify-between ">
+          <Text className="text-ui-fg-subtle ">{productPreview.title}</Text>
           <div className="flex items-center gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>

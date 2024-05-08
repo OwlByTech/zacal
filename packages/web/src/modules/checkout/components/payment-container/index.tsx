@@ -49,7 +49,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
             {process.env.NODE_ENV === "development" &&
               !Object.hasOwn(paymentInfoMap, paymentSession.provider_id) && (
                 <Tooltip
-                  content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'"
+                  content="Puedes agregar un nombre amigable para el usuario y un ícono para este proveedor de pagos en 'src/modules/checkout/components/payment/index.tsx'"
                   className="min-w-fit"
                 >
                   <InformationCircleSolid color="var(--fg-muted)" />

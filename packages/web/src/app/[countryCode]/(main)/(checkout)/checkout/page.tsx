@@ -8,6 +8,7 @@ import Wrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
 import { getCart } from "@lib/data"
+import { Heading } from "@medusajs/ui"
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -38,11 +39,18 @@ export default async function Checkout() {
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-x-40 py-12">
-      <Wrapper cart={cart}>
-        <CheckoutForm />
-      </Wrapper>
-      <CheckoutSummary />
-    </div>
+    <section>
+      <Heading className="text-[2rem] leading-[2.75rem] text-center pb-4">
+        Pedido
+      </Heading>
+      <div className="grid grid-cols-1 small:grid-cols-[520px_1fr] content-container gap-x-40 py-12">
+        <Wrapper cart={cart}>
+          <CheckoutSummary />
+        </Wrapper>
+        <div className="relative small:border-l-4 small:pl-10 border-gray-500">
+          <CheckoutForm />
+        </div>
+      </div>
+    </section>
   )
 }

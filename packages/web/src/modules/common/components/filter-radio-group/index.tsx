@@ -3,7 +3,7 @@ import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
 import { ChangeEvent } from "react"
 
 type FilterRadioGroupProps = {
-  title: string
+  title?: string
   items: {
     value: string
     label: string
@@ -18,42 +18,38 @@ const FilterRadioGroup = ({
   value,
   handleChange,
 }: FilterRadioGroupProps) => {
+  console.log("sortby", value)
   return (
-    <div className="flex gap-x-3 flex-col gap-y-3">
-      <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
+    <div className="flex py-4 gap-x-3 flex-col gap-y-4">
+      {title && (
+        <p className="txt-compact-small-plus text-ui-fg-muted">{title}</p>
+      )}
       <RadioGroup>
         {items?.map((i) => (
           <div
             key={i.value}
-            className={clx("flex gap-x-2 items-center", {
-              "ml-[-1.75rem]": i.value === value,
-            })}
+            className={clx("flex gap-x-2 items-center border-b", {})}
           >
             {i.value === value && <EllipseMiniSolid />}
             <RadioGroup.Item
-              checked={i.value === value}
               onClick={(e) =>
                 handleChange(
                   e as unknown as ChangeEvent<HTMLButtonElement>,
                   i.value
                 )
               }
-              className="hidden peer"
-              id={i.value}
+              className="hidden border-b"
               value={i.value}
             />
-            <Label
+            <label
               placeholder={i.label}
               htmlFor={i.value}
               className={clx(
-                "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer",
-                {
-                  "text-ui-fg-base": i.value === value,
-                }
+                "!txt-compact-small uppercase !transform-none text-ui-fg-subtle hover:cursor-pointer"
               )}
             >
               {i.label}
-            </Label>
+            </label>
           </div>
         ))}
       </RadioGroup>

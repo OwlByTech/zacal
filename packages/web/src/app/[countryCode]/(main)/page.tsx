@@ -1,78 +1,52 @@
 import { Product } from "@medusajs/medusa"
 import { Metadata } from "next"
 
-import { getCollectionsList, getProductsList, getRegion } from "@lib/data"
-import FeaturedProducts from "@modules/home/components/featured-products"
-import Hero from "@modules/home/components/hero"
+import {
+  getCollectionsList,
+  getCustomer,
+  getProductsList,
+  getRegion,
+} from "@lib/data"
+import FeaturedProducts from "@modules/home/featured-products"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
+import AdShoesEver from "@modules/home/components/ad-shoes-ever"
+import BestShoes from "@modules/home/components/best-shoes"
+import BestDealsCategory from "@modules/home/templates/best-deals"
+import OutletCategory from "@modules/home/templates/outlet"
+import OnSaleCategory from "@modules/home/templates/on-sale"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Zacal",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }
-
-const getCollectionsWithProducts = cache(
-  async (
-    countryCode: string
-  ): Promise<ProductCollectionWithPreviews[] | null> => {
-    const { collections } = await getCollectionsList(0, 3)
-
-    if (!collections) {
-      return null
-    }
-
-    const collectionIds = collections.map((collection) => collection.id)
-
-    await Promise.all(
-      collectionIds.map((id) =>
-        getProductsList({
-          queryParams: { collection_id: [id] },
-          countryCode,
-        })
-      )
-    ).then((responses) =>
-      responses.forEach(({ response, queryParams }) => {
-        let collection
-
-        if (collections) {
-          collection = collections.find(
-            (collection) => collection.id === queryParams?.collection_id?.[0]
-          )
-        }
-
-        if (!collection) {
-          return
-        }
-
-        collection.products = response.products as unknown as Product[]
-      })
-    )
-
-    return collections as unknown as ProductCollectionWithPreviews[]
-  }
-)
 
 export default async function Home({
   params: { countryCode },
 }: {
   params: { countryCode: string }
 }) {
-  const collections = await getCollectionsWithProducts(countryCode)
   const region = await getRegion(countryCode)
-
-  if (!collections || !region) {
+  const customer = await getCustomer()
+  if (!region) {
     return null
   }
 
   return (
     <>
-      <Hero />
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
+      <div className="flex flex-col gap-6 sm:gap-20">
+        <BestShoes />
+        <div className="flex flex-col ">
+          <BestDealsCategory region={region} />
+        </div>
+        <AdShoesEver customer={customer} />
+        <div>
+          <OnSaleCategory region={region} />
+        </div>
+        <div className="flex flex-col gap-5 sm:gap-20">
+          <OutletCategory region={region} />
+        </div>
       </div>
     </>
   )
