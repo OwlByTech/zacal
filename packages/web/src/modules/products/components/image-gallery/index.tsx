@@ -1,9 +1,5 @@
 "use client"
 import { Image as MedusaImage } from "@medusajs/medusa"
-import { Container } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Image from "next/image"
-import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom"
 type ImageGalleryProps = {
@@ -57,11 +53,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         >
           <QuickPinchZoom
             onUpdate={onUpdate}
-            tapZoomFactor={2}
-            zoomOutFactor={4}
+            tapZoomFactor={4}
+            zoomOutFactor={2}
             inertiaFriction={0}
-            maxZoom={10}
+            maxZoom={2}
             minZoom={1}
+            doubleTapZoomOutOnMaxScale={true}
           >
             <img
               ref={imgRef}
