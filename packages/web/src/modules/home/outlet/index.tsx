@@ -1,6 +1,5 @@
 "use client"
 import { Button } from "@medusajs/ui"
-import Arrow from "@modules/common/components/arrow"
 import { useState } from "react"
 import CategoryView from "../components/categories-view"
 import { Region } from "@medusajs/medusa"
