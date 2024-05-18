@@ -3,6 +3,7 @@
 .DS_Store
 /uploads
 /node_modules
+/medusa-nodemailer
 yarn-error.log
 
 .idea
