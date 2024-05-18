@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "co"
+console.log(BACKEND_URL)
 
 const regionMapCache = {
   regionMap: new Map<string, Region>(),
@@ -18,7 +19,6 @@ async function getRegionMap() {
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
-    console.log(`${BACKEND_URL}/store/regions`)
     const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
       next: {
         revalidate: 3600,

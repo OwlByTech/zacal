@@ -4,7 +4,10 @@ echo "Installing bash..."
 apk add bash
 
 echo "Installing dependiencies"
+yarn add file:./medusa-nodemailer
 yarn install
+ls
+pwd
 
 if [ $ENV = "prod" ]; then
   echo "------------ PRODUCTION MODE ------------"
