@@ -31,11 +31,27 @@ const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 const DATABASE_URL =
     process.env.DATABASE_URL || "postgres://localhost/medusa-starter-default";
 
-const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
+const REDIS_URL = process.env.REDIS_URL_MEDUSA || "redis://localhost:6379";
 
 const plugins = [
     `medusa-fulfillment-manual`,
     `medusa-payment-manual`,
+    {
+        resolve: "medusa-nodemailer",
+        options: {
+            dirname: `${__dirname}/template`,
+            host: 'mail.owlbytech.com',
+            port: 465,
+            username: 'no-reply@owlbytech.com',
+            password: 'OwlByTech@2024',
+            email_from: 'no-reply@owlbytech.com',
+            subject_order: 'Compra zacal',
+            subject_customer: "Bienvenido",
+            customerTemplate: "customerTemplate",
+            orderTemplate: "cartTemplate"
+
+        }
+    },
     {
         resolve: `@medusajs/file-local`,
         options: {
@@ -91,18 +107,18 @@ const plugins = [
 ];
 
 const modules = {
-    /*eventBus: {
-      resolve: "@medusajs/event-bus-redis",
-      options: {
-        redisUrl: REDIS_URL
-      }
+    eventBus: {
+        resolve: "@medusajs/event-bus-redis",
+        options: {
+            redisUrl: REDIS_URL
+        }
     },
     cacheService: {
-      resolve: "@medusajs/cache-redis",
-      options: {
-        redisUrl: REDIS_URL
-      }
-    },*/
+        resolve: "@medusajs/cache-redis",
+        options: {
+            redisUrl: REDIS_URL
+        }
+    },
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
@@ -112,8 +128,7 @@ const projectConfig = {
     store_cors: STORE_CORS,
     database_url: DATABASE_URL,
     admin_cors: ADMIN_CORS,
-    // Uncomment the following lines to enable REDIS
-    // redis_url: REDIS_URL
+    redis_url: REDIS_URL
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
