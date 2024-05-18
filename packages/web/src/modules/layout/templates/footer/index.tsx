@@ -25,7 +25,7 @@ export default async function Footer({ customer }: { customer: any }) {
       <div className="px-7 py-16 h-full content-end">
         <small className="flex flex-row items-end content-end">
           <p className="text-white font-bold">&copy; 2024 zacal, </p>
-          <a className="text-white" href="owlbytech.com">
+          <a className="text-white" href="https://owlbytech.com/">
             Made by OwlByTech
           </a>
         </small>
