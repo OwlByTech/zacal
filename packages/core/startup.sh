@@ -4,6 +4,11 @@ echo "Installing bash..."
 apk add bash
 
 echo "Installing dependiencies"
+cd medusa-nodemailer
+yarn install
+yarn build:server
+rm -r node_modules/@medusajs
+cd ..
 yarn add file:./medusa-nodemailer
 yarn install
 ls
