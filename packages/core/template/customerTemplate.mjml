@@ -1,0 +1,15 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+        <mj-image width="162px" src="http://zacal.co/logo.png"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text font-size="20px" >Bienvenido {{name}}</mj-text>
+         <mj-text font-size="15px" >Estamos emocionados de tenerte con nosotros. Descubre nuestros productos y disfruta de un 30% de descuento en tu primera compra con el código "BIENVENIDO30". Si necesitas ayuda, estamos aquí para ti.</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
