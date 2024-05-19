@@ -11,8 +11,6 @@ rm -r node_modules/@medusajs
 cd ..
 yarn add file:./medusa-nodemailer
 yarn install
-ls
-pwd
 
 if [ $ENV = "prod" ]; then
   echo "------------ PRODUCTION MODE ------------"
